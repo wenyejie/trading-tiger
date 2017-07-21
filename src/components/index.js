@@ -16,6 +16,14 @@ import {gameGrid, gameGridItem} from '../components/gameGrid';
 import tabs from '../components/tabs';
 import tabsPanel from '../components/tabsPanel';
 import button from '../components/button';
+import input from '../components/input';
+import countdown from '../components/countdown';
+import slideCode from '../components/slideCode';
+import steps from '../components/steps';
+import step from '../components/step';
+import formMake from '../components/formMake';
+import formControl from '../components/formControl';
+import spinner from '../components/spinner';
 
 const sview = {
   sApp: app,
@@ -30,7 +38,15 @@ const sview = {
   sGameGridItem: gameGridItem,
   sTabs: tabs,
   sTabsPanel: tabsPanel,
-  sButton: button
+  sButton: button,
+  sInput: input,
+  sCountdown: countdown,
+  sSlideCode: slideCode,
+  sSteps: steps,
+  sStep: step,
+  sFormMake: formMake,
+  sFormControl: formControl,
+  sSpinner: spinner
 };
 
 const install = Vue => {

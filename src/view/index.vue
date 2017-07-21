@@ -13,7 +13,7 @@
       <!-- swiper -->
       <div v-swiper="swiperOpts" class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="banner in banners">
+          <div class="swiper-slide" v-for="(banner, index) in banners" :key="index">
             <router-link :to="banner.link">
               <img :src="banner.img">
             </router-link>
@@ -162,11 +162,6 @@
   import Vue from 'vue';
   import randomNum from '../untils/randomNum';
   import hotGames from '../data/hotGames';
-
-  if (process.env.VUE_ENV === 'client') {
-    const VueAwesomeSwiper = require('vue-awesome-swiper/ssr');
-    Vue.use(VueAwesomeSwiper);
-  }
 
   // 最近成交
   let recentlyDeal = [];

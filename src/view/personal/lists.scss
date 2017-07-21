@@ -1,0 +1,28 @@
+@charset "utf-8";
+/**
+ * 个人中心列表样式
+ *
+ * author: Storm
+ * date: 2017/05/02
+ */
+
+.list {
+
+  &-name {
+    color: #666;
+  }
+
+  &-desc {
+    font-size: .22rem;
+  }
+
+  &-time {
+    font-size: .22rem;
+    color: #ccc;
+  }
+
+  &-price {
+    font-size: .2rem;
+  }
+
+}

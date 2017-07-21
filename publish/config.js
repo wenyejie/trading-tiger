@@ -44,7 +44,7 @@ const CONFIG = {
 };
 
 
-if (typeof window !== 'undefined') {
+if (process.env.VUE_ENV === 'client') {
 
   // 判断是否支持webp
   if (CONFIG.IS_SUPPORT_WEBP === null) {

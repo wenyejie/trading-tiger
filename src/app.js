@@ -1,5 +1,12 @@
 import './untils/babel';
+import './untils/local';
+import './untils/session';
 import Vue from 'vue';
+import cookie from './core/vue-cookie';
+
+Vue.prototype.$cookie = cookie;
+
+import CONFIG from '../publish/config';
 
 // components
 import components from './components';
@@ -10,10 +17,17 @@ Vue.use(components);
 import axios from 'axios';
 
 Vue.prototype.$http = axios.create({
-  baseURL: '//wfadmin.dm.com:8081',
+  baseURL: '//' + CONFIG.BASE_PATH,
   timeout: 10000,
   withCredentials: true
 });
+
+if (process.env.VUE_ENV === 'client') {
+  require('./untils/local');
+  require('./untils/session');
+  const VueAwesomeSwiper = require('vue-awesome-swiper/ssr');
+  Vue.use(VueAwesomeSwiper);
+}
 
 import App from './App.vue';
 import {createStore} from './store';
