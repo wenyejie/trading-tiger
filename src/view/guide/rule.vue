@@ -68,7 +68,7 @@
         related: [], // 相关问题
       }
     },
-    created(){
+    created (){
       questions.rule.forEach(item => this.related.push(questions.all.find(subItem => subItem.id === item)));// 初始化相关问题
     }
   }

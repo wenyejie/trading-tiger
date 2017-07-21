@@ -101,7 +101,7 @@
           .finally(() => this.loading = false);
       }
     },
-    created () {
+    mounted () {
       this.payFlowId = Number(this.$route.query.payFlowId);
       this.getWithdrawDetail();
 

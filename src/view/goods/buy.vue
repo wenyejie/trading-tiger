@@ -418,10 +418,7 @@
         })
       }
     },
-    activated () {
-      this.init();
-    },
-    created () {
+    mounted () {
       this.init();
     }
   }

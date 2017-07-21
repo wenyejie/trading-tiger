@@ -1,0 +1,111 @@
+@charset "utf-8";
+/**
+ * Title
+ *
+ * author: Storm
+ * date: 2017/05/06
+ */
+
+.message {
+  padding: .2rem .2rem 1.18rem;
+  font-size: .26rem;
+
+  &-item + &-item {
+    margin-top: .1rem;
+  }
+
+  &-item:first-child .message-time {
+    margin-top: 0;
+  }
+
+  &-time {
+    background-color: rgba(16, 16, 16, .15);
+    border-radius: .04rem;
+    text-align: center;
+    color: #fff;
+    font-size: .22rem;
+    width: 2.7rem;
+    line-height: .4rem;
+    display: block;
+    margin: .5rem auto .2rem;
+  }
+
+  &-text {
+    line-height: .36rem;
+    max-width: 5rem;
+    padding: .25rem .2rem;
+    border-radius: .1rem;
+    display: inline-block;
+    word-break: break-all;
+    white-space: pre-line;
+  }
+
+  &-self {
+
+    .message-content {
+      text-align: right;
+    }
+
+    .message-text {
+      background-color: #767688;
+      margin-left: auto;
+      text-align: left;
+      color: #fff;
+      border-top-right-radius: 0;
+    }
+  }
+
+  &-other {
+
+    .message-content {
+      text-align: left;
+    }
+
+    .message-text {
+      background-color: #fff;
+      color: #333;
+      border-top-left-radius: 0;
+    }
+  }
+
+
+  &-send {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 6.4rem;
+    background-color: #fafafa;
+    padding: .16rem .2rem;
+
+    form {
+      display: flex;
+      width: 100%;
+    }
+
+    input,
+    button {
+      border-radius: .04rem;
+      border: 1px solid transparent;
+      height: .66rem;
+      font-size: .28rem;
+    }
+
+    input {
+      background-color: #f1f1f1;
+      flex: 1;
+      border-color: #e5e5e5;
+      padding: 0 .2rem;
+    }
+
+    button {
+      width: 1.36rem;
+      margin-left: .1rem;
+      background-color: transparent;
+      border-color: #666;
+    }
+
+  }
+
+}

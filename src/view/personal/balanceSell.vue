@@ -72,7 +72,7 @@
           .finally(() => this.loading = false);
       }
     },
-    created () {
+    mounted () {
       this.payFlowId = parseInt(this.$route.query.payFlowId);
       this.getBalanceDetails();
     }

@@ -113,7 +113,7 @@
           .finally(() => this.loading = false);
       }
     },
-    created () {
+    mounted () {
       this.getWithdraws();
     }
   }

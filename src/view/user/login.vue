@@ -106,7 +106,7 @@
       }
 
     },
-    created() {
+    mounted () {
 
       // 查找重定向地址，如果没有则默认指向首页
       this.redirectUrl = this.$route.query.redirectUrl || '/';

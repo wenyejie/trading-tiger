@@ -29,8 +29,8 @@
 </template>
 
 <script>
-  /*import Flag from '@/components/flag';
-   import FlagGroup from '@/components/flagGroup';*/
+  /*import Flag from '../components/flag';
+   import FlagGroup from '../components/flagGroup';*/
   import platformType from '../../filters/platformType';
   import goodsClass from '../../filters/goodsClass';
 

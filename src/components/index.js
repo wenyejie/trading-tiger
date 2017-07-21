@@ -24,6 +24,13 @@ import step from '../components/step';
 import formMake from '../components/formMake';
 import formControl from '../components/formControl';
 import spinner from '../components/spinner';
+import orderList from '../components/orderList';
+import formSelect from '../components/formSelect';
+import upload from '../components/upload';
+import popup from '../components/popup';
+import cell from '../components/cell';
+import cellIntro from '../components/cellIntro';
+import infinite from '../components/infinite';
 
 const sview = {
   sApp: app,
@@ -46,7 +53,14 @@ const sview = {
   sStep: step,
   sFormMake: formMake,
   sFormControl: formControl,
-  sSpinner: spinner
+  sSpinner: spinner,
+  sOrderList: orderList,
+  sFormSelect: formSelect,
+  sUpload: upload,
+  sPopup: popup,
+  sCell: cell,
+  sCellIntro: cellIntro,
+  sInfinite: infinite
 };
 
 const install = Vue => {

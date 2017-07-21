@@ -24,7 +24,9 @@
     name: 'infinite',
     props: {
       element: {
-        default: () => window
+        default: () => {
+
+        }
       },
       offset: {
         type: Number,

@@ -125,7 +125,7 @@
           .finally(() => this.loading = false);
       }
     },
-    created () {
+    mounted () {
       this.getBalances();
     }
   }

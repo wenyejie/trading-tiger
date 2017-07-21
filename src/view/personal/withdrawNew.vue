@@ -199,7 +199,7 @@
       }
 
     },
-    created () {
+    mounted () {
       this.withdraw.oldAlipayAccount = window.withdrawOldAlipayAccount;
 
       // 数据篡改, 返回上一页

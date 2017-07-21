@@ -1,0 +1,38 @@
+@charset "utf-8";
+/**
+ * 交易证明
+ *
+ * author: Storm
+ * date: 2017/04/27
+ */
+
+.evidence {
+
+  &-title {
+    font-size: .28rem;
+    line-height: 1;
+    padding: .4rem 0 .3rem;
+    text-align: center;
+    font-weight: 300;
+  }
+
+  &-footer {
+    line-height: 1;
+    font-size: .2rem;
+    text-align: right;
+    padding-right: .32rem;
+    padding-bottom: .16rem;
+
+    img {
+      display: block;
+      width: 1.88rem;
+      height: 1.87rem;
+      margin-left: auto;
+      margin-bottom: -.3rem;
+    }
+
+    p + p {
+      margin-top: .06rem;
+    }
+  }
+}

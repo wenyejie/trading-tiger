@@ -10,6 +10,7 @@ import guide from './guide';
 import personal from './personal';
 import user from './user';
 import goods from './goods';
+import order from './order.js';
 
 export function createRouter () {
   return new Router({
@@ -44,7 +45,9 @@ export function createRouter () {
 
       user,
 
-      goods
+      goods,
+
+      order
     ]
   })
 }
