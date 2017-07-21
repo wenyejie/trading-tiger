@@ -17,7 +17,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'public': path.resolve(__dirname, '../public')
+      'public': path.resolve(__dirname, '../public'),
+      'vue$': 'vue/dist/vue.common.js'
     }
   },
   module: {
@@ -37,18 +38,18 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          limit: 1000,
           name: '[name].[ext]?[hash]'
         }
       },
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         use: isProd
           ? ExtractTextPlugin.extract({
               use: 'css-loader?minimize',
               fallback: 'vue-style-loader'
             })
-          : ['vue-style-loader', 'css-loader']
+          : ['vue-style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },

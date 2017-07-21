@@ -14,7 +14,8 @@ module.exports = merge(base, {
   },
   resolve: {
     alias: {
-      'create-api': './create-api-server.js'
+      'create-api': './create-api-server.js',
+      'vue$': 'vue/dist/vue.common.js'
     }
   },
   // https://webpack.js.org/configuration/externals/#externals

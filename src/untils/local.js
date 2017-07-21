@@ -8,7 +8,7 @@
 
 const msg = '你正处于无痕模式下, 为了获得更好的体验, 请切换到正常模式, 否则该功能将无法使用!';
 
-window.local = {
+const local = {
 
   /**
    * 获取本地存储的值
@@ -62,5 +62,9 @@ window.local = {
     return localStorage.length;
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.local = local;
+}
 
 export default local;

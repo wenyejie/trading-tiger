@@ -6,7 +6,7 @@
  */
 
 // 支付方式数据
-import paymentMethod from '@/data/paymentMethod';
+import paymentMethod from '../data/paymentMethod';
 
 /**
  * 返回支付方式的某个数据

@@ -109,7 +109,7 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'Vue HN 2.0', // default title
+    title: '交易虎_手机游戏交易平台_手游交易_帐号交易_游戏币交易_装备交易_道具交易_jiaoyihu', // default title
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {
@@ -131,7 +131,7 @@ app.get('*', isProd ? render : (req, res) => {
   readyPromise.then(() => render(req, res))
 })
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 80;
 app.listen(port, () => {
   console.log(`server started at localhost:${port}`)
 })

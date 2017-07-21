@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 import index from '../view/index.vue';
+import guide from './guide';
 
 export function createRouter () {
   return new Router({
@@ -13,7 +14,9 @@ export function createRouter () {
       {
         path: '/',
         component: index
-      }
+      },
+
+      guide
     ]
   })
 }

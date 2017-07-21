@@ -8,9 +8,94 @@
 <html lang="zh-cn">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">-->
+
+  <!-- 360网站验证 -->
+  <meta name="360-site-verification" content="ecaa030be43b33fd6719469497e71755"/>
+  <meta name="shenma-site-verification" content="b105696097cbdd8a3cf2425897b93c44_1499744047">
+
+  <!-- 百度网站验证 -->
+  <meta name="baidu-site-verification" content="yFrsmbHooT"/>
+
+  <meta name="keywords" content="交易虎手机游戏交易平台,手游交易,账号交易,游戏币交易,装备道具交易,交易虎_jiaoyihu">
+  <meta name="description"
+        content="交易虎是交易最快的手游交易平台-提供免费、快速的手机游戏帐号交易、游戏币交易、装备道具交易，为用户提供最快、最安全、服务最完善的手机游戏交易平台_www.jiaoyihu.com">
+
+  <!-- 当前页面链接 -->
+  <link rel="canonical" href="http://www.jiaoyihu.com/"/>
+
+  <!-- 网站icon -->
+  <link rel="shortcut icon" href="/favicon.ico"/>
+
+  <!-- 对于iPhone4使用的高分辨率Retina屏幕，使用"114x114"大小的图标。-->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/icon-114x114.png">
+
+  <!-- 对于iPad，使用"72x72"大小的图标。-->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/icon-72x72.png">
+
+  <!--对于未使用Retina屏幕的iPhone和Android2.1以上版本的设备，使用"57x57"大小的低分辨率图标。-->
+  <link rel="apple-touch-icon-precomposed" href="/static/icon-57x57.png">
+
+  <!-- 启动图片 -->
+  <link rel="apple-touch-startup-image" href="/static/icon-114x114.png"/>
   <title>{{title}}</title>
+
+  <!-- 响应式自动变化rem初始值 -->
+  <script>!function (a) {
+    "use strict";
+
+    function f () {
+      c = b.documentElement.getBoundingClientRect().width, c >= 640 ? c = 640 : 320 >= c && (c = 320), window.rootFontSize = 100 * (c / a), b.querySelector("html").style.fontSize = window.rootFontSize + "px"
+    }
+
+    var c, e, b = document;
+    b.querySelector("html"), f(), window.addEventListener("resize", function () {
+      clearTimeout(e), e = setTimeout(f, 150)
+    }, !1), "complete" === b.readyState ? b.body.style.fontSize = ".24rem" : b.addEventListener("DOMContentLoaded", function () {
+      b.body.style.fontSize = ".24rem"
+    }, !1)
+  }(640);</script>
 </head>
 <body>
   <!--vue-ssr-outlet-->
+
+  <!-- 腾讯移动分析 -->
+  <script>
+    var _mtac = {"performanceMonitor": 1, "senseQuery": 1};
+    (function () {
+      if (location.host.indexOf('www.jiaoyihu.com') < 0) return false;
+      var mta = document.createElement("script");
+      mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500478776");
+      mta.setAttribute("cid", "500479819");
+      mta.setAttribute('async', 'async');
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+
+  <!-- 百度自动推送收录 -->
+  <script>
+    (function () {
+      if (location.host.indexOf('www.jiaoyihu.com') < 0) return false;
+      var bp = document.createElement('script');
+      bp.setAttribute('async', 'async');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 </body>
 </html>

@@ -1,0 +1,83 @@
+@charset "utf-8";
+/**
+ * progress
+ * 购买出售/流程
+ * author: Storm
+ * date: 2017/07/05
+ */
+
+/* progress */
+.progress {
+  margin-top: .1rem;
+  min-height: 88vh;
+
+  &-item {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+
+    & + & {
+      margin-top: .5rem;
+    }
+
+  }
+
+  &-label {
+    font-size: .26rem;
+    line-height: 1;
+    background-color: #f7fcff;
+    border: 1px dashed #cbdeff;
+    color: #5e97f6;
+    border-radius: .04rem;
+    width: 2rem;
+    height: .8rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    position: relative;
+
+    & + & {
+      margin-left: .2rem;
+    }
+
+    span {
+      vertical-align: middle;
+    }
+  }
+
+  &-error {
+    border-color: #ffc6c6;
+    color: #f85959;
+    background-color: #fff7f7;
+  }
+
+  &-success {
+    border-color: #5acd69;
+    color: #5acd69;
+    background-color: #f5fff4;
+  }
+
+  &-triangle::after {
+    position: absolute;
+    content: '';
+    left: 50%;
+    margin-left: -.12rem;
+    bottom: -.3rem;
+    width: 0;
+    height: 0;
+    border-left: .12rem solid transparent;
+    border-right: .12rem solid transparent;
+    border-top: .1rem solid #bdd6ff;
+  }
+
+  &-triangle-error::after {
+    border-top-color: #ffdcdc;
+  }
+}
+/* /progress */

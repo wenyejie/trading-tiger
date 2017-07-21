@@ -1,0 +1,121 @@
+@charset "utf-8";
+/**
+ * author: Storm
+ * date: 2017/03/28
+ */
+
+.s-button {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  border-radius: .06rem;
+  height: .7rem;
+  padding-left: .24rem;
+  padding-right: .24rem;
+  line-height: 1;
+  transition: all .3s ease;
+  min-width: 2.2rem;
+  max-width: 100%;
+  font-size: .26rem;
+
+  & + & {
+    margin-left: .1rem;
+  }
+
+  &-lg {
+    height: .8rem;
+    letter-spacing: 1px;
+    border-radius: .1rem;
+  }
+
+  &-angle {
+    border-radius: 0;
+  }
+
+  &-lg &-round {
+    border-radius: .4rem;
+  }
+
+  &-sm {
+    height: .48rem;
+    font-size: .24rem;
+    padding-left: .2rem;
+    padding-right: .2rem;
+    border-radius: .04rem;
+    min-width: 1.38rem;
+
+    & + & {
+      margin-left: .07rem;
+    }
+  }
+
+  &-xs {
+    min-width: 0;
+    height: .3rem;
+    padding: 0 .15rem;
+    font-size: .2rem;
+    border-radius: .03rem;
+  }
+
+  &[disabled] {
+    opacity: .2;
+  }
+
+  &-block {
+    width: 100%;
+    display: block;
+
+    & + & {
+      margin-left: 0;
+      margin-top: .1rem;
+    }
+  }
+
+  &-default {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #666;
+  }
+
+  &-gray {
+    color: #666;
+  }
+
+  &-outline {
+    border-color: #fd802c;
+    color: #fd802c;
+  }
+
+  &-primary {
+    background-image: linear-gradient(to left, #ff775e 0%, #f9a567 100%);
+    color: #fff;
+  }
+
+  &-link {
+    color: #999;
+  }
+
+  &-shadow {
+    box-shadow: 0 1px .16rem 0 rgba(255, 178, 178, .6);
+  }
+
+  & .s-icon + span {
+    margin-left: .1rem;
+  }
+
+}
+
+a.s-button {
+  text-align: center;
+  line-height: .68rem;
+}
+a.s-button-lg {
+  line-height: .78rem;
+}
+a.s-button-sm {
+  line-height: .46rem;
+}
+a.s-button-xs {
+  line-height: .28rem;
+}

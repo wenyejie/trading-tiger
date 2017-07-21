@@ -5,50 +5,54 @@
  * date: 2017/06/19
  */
 
-const win = window;
+let browser = {};
 
-const ua = win.navigator.userAgent.toLowerCase();
+if (typeof window !== 'undefined') {
+  const win = window;
 
-const browser = {
+  const ua = win.navigator.userAgent.toLowerCase();
 
-  ua,
+  browser = {
 
-  isMobile: ua.includes('mobile'),
+    ua,
 
-  isChrome: ua.includes('chrome'),
+    isMobile: ua.includes('mobile'),
 
-  isFirefox: ua.includes('firefox'),
+    isChrome: ua.includes('chrome'),
 
-  isSafari: ua.includes('version') && ua.includes('safari'),
+    isFirefox: ua.includes('firefox'),
 
-  isWechat: ua.includes('micromessenger'),
+    isSafari: ua.includes('version') && ua.includes('safari'),
 
-  isMac: ua.includes('mac os x'),
+    isWechat: ua.includes('micromessenger'),
 
-  isLinux: ua.includes('linux'),
+    isMac: ua.includes('mac os x'),
 
-  isWindows: ua.includes('windows'),
+    isLinux: ua.includes('linux'),
 
-  isAndroid: ua.includes('android'),
+    isWindows: ua.includes('windows'),
 
-  isIphone: ua.includes('iphone'),
+    isAndroid: ua.includes('android'),
 
-  isIpad: ua.includes('ipad'),
+    isIphone: ua.includes('iphone'),
 
-  isIpod: ua.includes('ipod'),
+    isIpad: ua.includes('ipad'),
 
-  // 客户端宽度
-  cWidth: win.outerWidth,
+    isIpod: ua.includes('ipod'),
 
-  // 客户端高度
-  cHeight: win.outerHeight,
+    // 客户端宽度
+    cWidth: win.outerWidth,
 
-  width: win.innerWidth,
+    // 客户端高度
+    cHeight: win.outerHeight,
 
-  height: win.innerHeight
+    width: win.innerWidth,
 
-};
+    height: win.innerHeight
 
-browser.isPc = !browser.isMobile;
+  };
+
+  browser.isPc = !browser.isMobile;
+}
 
 export default browser;

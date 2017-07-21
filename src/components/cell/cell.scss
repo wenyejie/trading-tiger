@@ -1,0 +1,79 @@
+@charset "utf-8";
+/**
+ * Cell
+ *
+ * author: Storm
+ * date: 2017/04/16
+ */
+
+.s-cell {
+  background-color: #fff;
+  padding-left: .24rem;
+  padding-right: .24rem;
+  height: .88rem;
+  line-height: 1.3333333333333333;
+  display: flex;
+  //font-size: .26rem;
+  //color: #333;
+  align-content: space-between;
+  align-items: center;
+
+  &-auto {
+    height: auto;
+    padding: .24rem;
+  }
+
+  &-lg {
+    height: 1.36rem;
+  }
+
+  &-md {
+    height: 1rem;
+  }
+
+  & + & {
+    border-top: 1px solid #E5E5E5;
+  }
+
+  &-before {
+    margin-right: .1rem;
+  }
+
+  &-left {
+    flex:1;
+    //display: flex;
+    overflow: hidden;
+
+    .s-icon:first-child {
+      color: #D6DAE0;
+      margin-right: .12rem;
+      line-height: 1.3333333333333333;
+    }
+  }
+  &-right {
+    text-align: right;
+    align-self: center;
+    white-space: nowrap;
+    margin-left: .24rem;
+
+    .s-icon:last-child {
+      color: #D8D8D8;
+      margin-left: .05rem;
+      //margin-right: -.05rem;
+    }
+
+  }
+
+  .s-radio + .s-radio {
+    margin-left: .53rem;
+  }
+
+}
+
+.s-cell + .s-form-select,
+.s-form-select + .s-cell,
+.s-form-make + .s-form-make,
+.s-form-make + .s-form-control,
+.s-form-control + .s-form-make {
+  border-top: 1px solid #e5e5e5;
+}
