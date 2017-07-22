@@ -160,8 +160,21 @@
 
 <script>
   import Vue from 'vue';
+  import app from '../components/app';
+  import header from '../components/header';
+  import main from '../components/main';
+  import footer from '../components/footer';
+  import row from '../components/row';
+  import col from '../components/col';
+  import search from '../components/search';
+  import {gameGrid, gameGridItem} from '../components/gameGrid';
   import randomNum from '../untils/randomNum';
   import hotGames from '../data/hotGames';
+
+  if (process.env.VUE_ENV === 'client') {
+    const VueAwesomeSwiper = require('vue-awesome-swiper/ssr');
+    Vue.use(VueAwesomeSwiper);
+  }
 
   // 最近成交
   let recentlyDeal = [];
@@ -171,6 +184,17 @@
 
   export default {
     name: 'index',
+    components: {
+      sApp: app,
+      sHeader: header,
+      sMain: main,
+      sFooter: footer,
+      sRow: row,
+      sCol: col,
+      sSearch: search,
+      sGameGrid: gameGrid,
+      sGameGridItem: gameGridItem
+    },
     data () {
       return {
 
@@ -333,7 +357,7 @@
           .finally(() => this.announcesIng = false)
       },
     },
-    mounted () {
+    created () {
       this.getAnnounces();
       this.getRecentlyDeal();
     }

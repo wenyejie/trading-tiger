@@ -12,9 +12,12 @@
 </template>
 
 <script>
+  import grid from '../grid';
   export default {
     name: 'gameGrid',
-    props: {},
+    components: {
+      sGrid: grid
+    },
     data () {
       return {}
     },

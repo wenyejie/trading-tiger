@@ -1,10 +1,10 @@
-const path = require('path')
-const webpack = require('webpack')
-const vueConfig = require('./vue-loader.config')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const vueConfig = require('./vue-loader.config');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
   devtool: isProd
@@ -38,19 +38,28 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'url-loader',
         options: {
-          limit: 1000,
+          limit: 100,
           name: '[name].[ext]?[hash]'
         }
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.(scss|css)$/,
+        use: isProd
+          ? ExtractTextPlugin.extract({
+            use: ['css-loader?minimize', 'sass-loader?minimize'],
+            fallback: 'vue-style-loader'
+          })
+          : ['vue-style-loader', 'css-loader', 'sass-loader']
+      }
+      /*{
+        test: /\.(scss|css)$/,
         use: isProd
           ? ExtractTextPlugin.extract({
               use: 'css-loader?minimize',
               fallback: 'vue-style-loader'
             })
           : ['vue-style-loader', 'css-loader', 'sass-loader']
-      }
+      }*/
     ]
   },
   performance: {
@@ -69,4 +78,4 @@ module.exports = {
     : [
         new FriendlyErrorsPlugin()
       ]
-}
+};

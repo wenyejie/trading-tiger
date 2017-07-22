@@ -1,17 +1,17 @@
 import './untils/babel';
 import './untils/local';
 import './untils/session';
+import '../publish/config';
 import Vue from 'vue';
 import cookie from './core/vue-cookie';
+import CONFIG from '../publish/config';
 
 Vue.prototype.$cookie = cookie;
 
-import CONFIG from '../publish/config';
-
 // components
-import components from './components';
+/*import components from './components';
 
-Vue.use(components);
+Vue.use(components);*/
 
 // axios
 import axios from 'axios';
@@ -21,13 +21,6 @@ Vue.prototype.$http = axios.create({
   timeout: 10000,
   withCredentials: true
 });
-
-if (process.env.VUE_ENV === 'client') {
-  require('./untils/local');
-  require('./untils/session');
-  const VueAwesomeSwiper = require('vue-awesome-swiper/ssr');
-  Vue.use(VueAwesomeSwiper);
-}
 
 import App from './App.vue';
 import {createStore} from './store';
