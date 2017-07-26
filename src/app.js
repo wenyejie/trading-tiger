@@ -14,6 +14,8 @@ Vue.use(components);*/
 
 // axios
 import axios from 'axios';
+import axiosFinally from 'promise.prototype.finally';
+axiosFinally.shim();
 
 Vue.prototype.$http = axios.create({
   baseURL: '//' + CONFIG.BASE_PATH,

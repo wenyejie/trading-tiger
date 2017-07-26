@@ -353,7 +353,7 @@
           .then(response => {
             if (response.data.code !== '000') return false;
             response.data.data.forEach(item => item.url && item.title && this.announces.push(item));
-          })
+          }, () => this.announcesIng = false)
           .finally(() => this.announcesIng = false)
       },
     },
@@ -365,92 +365,6 @@
 </script>
 
 <style lang="scss">
-  .swiper-container {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    overflow: hidden;
-    z-index: 1
-  }
-  .swiper-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-    -ms-transition-property: -ms-transform;
-    transition-property: transform;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -o-transform: translate(0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0)
-  }
-  .swiper-slide {
-    -webkit-flex-shrink: 0;
-    -ms-flex: 0 0 auto;
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-    position: relative;
-
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-
-  .swiper-pagination {
-    position: absolute;
-    text-align: center;
-    -webkit-transition: .3s;
-    -moz-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s;
-    -webkit-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    z-index: 10;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
-  }
-
-  .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    display: inline-block;
-    border-radius: 100%;
-    background: #000;
-    opacity: .2;
-    cursor: pointer;
-    margin: 0 5px;
-  }
 
   .index-swiper img {
     min-height: 3rem;
