@@ -5,6 +5,6 @@
  * date: 2017/04/10
  */
 
-import flag from './flag.vue';
+// import flag from './flag.vue';
 
-export default flag;
+export default resolve => require(['./flag.vue'], resolve);

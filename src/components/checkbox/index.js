@@ -4,6 +4,6 @@
  */
 
 
-import checkbox from './checkbox.vue';
+// import checkbox from './checkbox.vue';
 
-export default checkbox;
+export default resolve => require(['./checkbox.vue'], resolve);

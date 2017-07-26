@@ -5,6 +5,6 @@
  * date: 2017/04/13
  */
 
-import search from './search.vue';
+// import search from './search.vue';
 
-export default search;
+export default resolve => require(['./search.vue'], resolve);

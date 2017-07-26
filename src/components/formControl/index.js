@@ -5,6 +5,6 @@
  * date: 2017/04/18
  */
 
-import formControl from './formControl.vue';
+// import formControl from './formControl.vue';
 
-export default formControl;
+export default resolve => require(['./formControl.vue'], resolve);

@@ -8,4 +8,4 @@
 import Cell from './cell.js';
 // import './cell.scss';
 
-export default Cell;
+export default resolve => require(['./cell.js', './cell.scss'], resolve);

@@ -5,6 +5,6 @@
  * date: 2017/05/02
  */
 
-import footer from './footer.vue';
+// import footer from './footer.vue';
 
-export default footer;
+export default resolve => require(['./footer.vue'], resolve);

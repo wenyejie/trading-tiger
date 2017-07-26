@@ -5,6 +5,6 @@
  * date: 2017/04/28
  */
 
-import badge from './badge.vue';
+// import badge from './badge.vue';
 
-export default badge;
+export default resolve => require(['./badge.vue'], resolve);

@@ -6,5 +6,5 @@
  */
 
 
-import attr from './attr.vue';
-export default attr;
+// import attr from './attr.vue';
+export default resolve => require(['./attr.vue'], resolve);

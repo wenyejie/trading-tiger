@@ -3,6 +3,6 @@
  * date: 2017/03/31
  */
 
-import col from './col.vue';
+// import col from './col.vue';
 
-export default col;
+export default resolve => require(['./col.vue'], resolve);

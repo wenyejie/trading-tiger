@@ -6,6 +6,6 @@
  */
 
 
-import nothing from './nothing.vue';
+// import nothing from './nothing.vue';
 
-export default nothing;
+export default resolve => require(['./nothing.vue'], resolve);

@@ -5,6 +5,6 @@
  * date: 2017/04/21
  */
 
-import Card from './card.vue';
+// import Card from './card.vue';
 
-export default Card;
+export default resolve => require(['./card.vue'], resolve);

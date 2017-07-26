@@ -5,6 +5,6 @@
  * date: 2017/05/27
  */
 
-import game from './game.vue';
+// import game from './game.vue';
 
-export default game
+export default resolve => require(['./game.vue'], resolve)

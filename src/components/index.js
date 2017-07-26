@@ -12,7 +12,7 @@ import row from '../components/row';
 import col from '../components/col';
 import footer from '../components/footer';
 import grid from '../components/grid';
-import {gameGrid, gameGridItem} from '../components/gameGrid';
+import gameGrid from '../components/gameGrid';
 import tabs from '../components/tabs';
 import tabsPanel from '../components/tabsPanel';
 import button from '../components/button';
@@ -50,8 +50,8 @@ const sview = {
   sCol: col,
   sFooter: footer,
   sGrid: grid,
-  sGameGrid: gameGrid,
-  sGameGridItem: gameGridItem,
+  sGameGrid: gameGrid.gameGrid,
+  sGameGridItem: gameGrid.gameGridItem,
   sTabs: tabs,
   sTabsPanel: tabsPanel,
   sButton: button,

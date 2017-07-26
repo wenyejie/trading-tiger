@@ -7,4 +7,4 @@
 
 import qiniuImg from './qiniuImg.vue';
 
-export default qiniuImg;
+export default resolve => require(['./qiniuImg.vue'], resolve);

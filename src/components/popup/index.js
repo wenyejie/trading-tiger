@@ -5,5 +5,5 @@
  * date: 2017/04/10
  */
 
-import popup from './popup.vue';
-export default popup;
+// import popup from './popup.vue';
+export default resolve => require(['./popup.vue'], resolve);

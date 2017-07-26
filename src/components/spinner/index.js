@@ -5,5 +5,5 @@
  * date: 2017/04/27
  */
 
-import spinner from './spinner.vue';
-export default spinner;
+// import spinner from './spinner.vue';
+export default resolve => require(['./spinner.vue'], resolve);

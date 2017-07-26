@@ -6,6 +6,6 @@
  */
 
 
-import formSelect from './formSelect.vue';
+// import formSelect from './formSelect.vue';
 
-export default formSelect;
+export default resolve => require(['./formSelect.vue'], resolve);

@@ -6,5 +6,5 @@
  */
 
 
-import flagGroup from './flagGroup.vue';
-export default flagGroup;
+// import flagGroup from './flagGroup.vue';
+export default resolve => require(['./flagGroup.vue'], resolve);

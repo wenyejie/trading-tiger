@@ -3,6 +3,6 @@
  * date: 2017/03/28
  */
 
-import Breadcrumb from './breadcrumb.vue';
+// import Breadcrumb from './breadcrumb.vue';
 
-export default Breadcrumb;
+export default resolve => require(['./breadcrumb.vue'], resolve);

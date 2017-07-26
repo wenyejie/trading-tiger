@@ -7,6 +7,6 @@
 
 
 
-import cellIntro from './cellIntro.vue';
+// import cellIntro from './cellIntro.vue';
 
-export default cellIntro;
+export default resolve => require(['./cellIntro.vue'], resolve);

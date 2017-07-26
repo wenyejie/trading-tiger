@@ -7,4 +7,4 @@
 
 import infinite from './infinite.vue';
 
-export default infinite;
+export default resolve => require(['./infinite.vue'], resolve);

@@ -5,6 +5,6 @@
  * date: 2017/04/25
  */
 
-import grid from './grid.vue';
+// import grid from './grid.vue';
 
-export default grid;
+export default resolve => require(['./grid.vue'], resolve);

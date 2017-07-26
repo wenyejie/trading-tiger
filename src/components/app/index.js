@@ -6,6 +6,6 @@
  */
 
 
-import App from './app.vue';
+// import App from './app.vue';
 
-export default App;
+export default resolve => require(['./app.vue'], resolve);

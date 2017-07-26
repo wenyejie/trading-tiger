@@ -7,4 +7,4 @@
 
 import goodsList from './goodsList.vue';
 
-export default goodsList;
+export default resolve => require(['./goodsList.vue'], resolve);

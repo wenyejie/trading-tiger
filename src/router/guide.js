@@ -5,7 +5,6 @@
  * date: 2017/06/07
  */
 
-import index from '../view/guide/index.vue';
 
 export default {
   path: '/guide',
@@ -18,7 +17,7 @@ export default {
     // 交易指南
     {
       path: '/guide/',
-      component: index
+      component: resolve => require(['../view/guide/index.vue'], resolve)
     },
 
     // 购买流程
