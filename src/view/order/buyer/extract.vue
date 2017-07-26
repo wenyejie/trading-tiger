@@ -181,7 +181,6 @@
 <script>
 
   import copy from '../../../core/copy';
-  import './extract.scss';
   export default {
     name: 'extract',
     props: {},
@@ -267,3 +266,7 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import "./extract.scss";
+</style>

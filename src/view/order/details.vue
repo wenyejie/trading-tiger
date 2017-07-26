@@ -166,7 +166,6 @@
   import goodsClass from '../../filters/goodsClass';
   import paymentMethod from '../../filters/paymentMethod';
   import orderProcessStatus from '../../filters/orderProcessStatus';
-  import '../../styles/goodsDetail.scss';
 
   // 角色对象
   let object = '';
@@ -262,3 +261,7 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import "../../styles/goodsDetail.scss";
+</style>

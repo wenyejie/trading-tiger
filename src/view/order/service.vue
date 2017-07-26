@@ -69,7 +69,6 @@
 
 <script>
   import Message from '../../untils/message';
-  import './service.scss';
 
   // IM实例
   let iMessage;
@@ -456,3 +455,6 @@
     }
   }
 </script>
+<style lang="scss">
+  @import "service.scss";
+</style>

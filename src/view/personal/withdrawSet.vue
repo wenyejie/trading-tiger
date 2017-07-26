@@ -62,7 +62,6 @@
 
 <script>
   import formValidate from '../../core/formValidate';
-  import './withdrawAccount.scss';
 
   export default {
     name: 'withdrawSet',
@@ -170,3 +169,7 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import "withdrawAccount.scss";
+</style>

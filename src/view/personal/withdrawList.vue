@@ -41,7 +41,6 @@
 <script>
   import withdrawStatus from '../../filters/withdrawStatus';
   import auditStatus from '../../filters/auditStatus';
-  import './lists.scss';
 
   export default {
     name: 'balances',
@@ -118,3 +117,6 @@
     }
   }
 </script>
+<style lang="scss">
+  @import "lists.scss";
+</style>

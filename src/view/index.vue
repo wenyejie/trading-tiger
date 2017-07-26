@@ -357,7 +357,7 @@
           .finally(() => this.announcesIng = false)
       },
     },
-    created () {
+    mounted () {
       this.getAnnounces();
       this.getRecentlyDeal();
     }

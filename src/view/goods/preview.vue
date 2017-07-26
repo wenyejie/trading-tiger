@@ -112,7 +112,6 @@
 <script>
   import goodsClass from '../../filters/goodsClass';
   import copy from '../../core/copy';
-  import '../../styles/goodsDetail.scss';
   export default {
     name: 'detail',
     props: {},
@@ -248,3 +247,7 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import "../../styles/goodsDetail.scss";
+</style>

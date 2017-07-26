@@ -41,7 +41,6 @@
 <script>
   import balanceType from '../../filters/balanceType';
   import flowType from '../../filters/flowType';
-  import './lists.scss';
 
   export default {
     name: 'balances',
@@ -130,3 +129,7 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import "lists.scss";
+</style>

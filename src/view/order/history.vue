@@ -69,7 +69,6 @@
 </template>
 
 <script>
-  import './service.scss';
 
   // 角色的类型
   let selfType = '';
@@ -255,3 +254,7 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import "service.scss";
+</style>

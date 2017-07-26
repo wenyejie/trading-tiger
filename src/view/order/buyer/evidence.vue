@@ -90,7 +90,6 @@
 </template>
 
 <script>
-  import './evidence.scss';
   export default {
     name: 'evidence',
     props: {},
@@ -100,3 +99,6 @@
     methods: {}
   }
 </script>
+<style lang="scss">
+  @import "./evidence.scss";
+</style>

@@ -118,7 +118,6 @@
 
 <script>
   import goodsClass from '../../filters/goodsClass';
-  import '../../styles/goodsDetail.scss';
 
   export default {
     name: 'detail',
@@ -244,6 +243,9 @@
 </script>
 
 <style lang="scss">
+
+  @import "../../styles/goodsDetail.scss";
+
   .goodsDetail-share {
     background: url('../../assets/share-white.png') no-repeat center;
     background-size: .36rem .36rem;

@@ -1,12 +1,11 @@
-import './untils/babel';
+/*import './untils/babel';
 import './untils/local';
-import './untils/session';
-import '../publish/config';
+import './untils/session';*/
 import Vue from 'vue';
-import cookie from './core/vue-cookie';
+// import cookie from './core/vue-cookie';
 import CONFIG from '../publish/config';
 
-Vue.prototype.$cookie = cookie;
+// Vue.prototype.$cookie = cookie;
 
 // components
 /*import components from './components';

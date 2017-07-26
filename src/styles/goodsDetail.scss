@@ -34,7 +34,7 @@
 
       min-height: 3rem;
 
-      background: #ececec url(../assets/picture.png) no-repeat center;
+      background: #ececec url(../../assets/picture.png) no-repeat center;
       background-size: 1rem 1rem;
 
       img {
@@ -93,10 +93,10 @@
     bottom: -.075em;
   }
   &-consignment {
-    background-image: url(../assets/consignment.png);
+    background-image: url(../../assets/consignment.png);
   }
   &-service {
-    background-image: url(../assets/service.png);
+    background-image: url(../../assets/service.png);
   }
 
   &-guarantee {
