@@ -1,6 +1,6 @@
-/*import './untils/babel';
+import './untils/babel';
 import './untils/local';
-import './untils/session';*/
+import './untils/session';
 import Vue from 'vue';
 // import cookie from './core/vue-cookie';
 import CONFIG from '../publish/config';

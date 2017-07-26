@@ -6,6 +6,10 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
   devtool: isProd
     ? false
@@ -18,7 +22,9 @@ module.exports = {
   resolve: {
     alias: {
       'public': path.resolve(__dirname, '../public'),
-      'vue$': 'vue/dist/vue.common.js'
+      'vue$': 'vue/dist/vue.common.js',
+      '@': resolve('src'),
+      '~': resolve('src/components')
     }
   },
   module: {
