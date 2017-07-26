@@ -31,6 +31,15 @@ import popup from '../components/popup';
 import cell from '../components/cell';
 import cellIntro from '../components/cellIntro';
 import infinite from '../components/infinite';
+import dialog from '../components/dialog';
+import message from '../components/message';
+import icon from '../components/icon';
+import nothing from '../components/nothing';
+import panel from '../components/panel';
+import link from '../components/link';
+import attr from '../components/attr';
+import qiniuImg from '../components/qiniuImg';
+import game from '../components/game';
 
 const sview = {
   sApp: app,
@@ -60,14 +69,24 @@ const sview = {
   sPopup: popup,
   sCell: cell,
   sCellIntro: cellIntro,
-  sInfinite: infinite
+  sInfinite: infinite,
+  sIcon: icon,
+  sNothing: nothing,
+  sPanel: panel,
+  sLink: link,
+  sDialog: dialog,
+  sMessage: message,
+  sAttr: attr,
+  sGame: game,
+  qiniuImg,
+
 };
 
 const install = Vue => {
   Object.keys(sview).forEach(key => Vue.component(key, sview[key]));
 
-  /*Vue.prototype.$Dialog = Dialog;
-  Vue.prototype.$Message = Message;*/
+  Vue.prototype.$Dialog = dialog;
+  Vue.prototype.$Message = message;
 };
 
 if (typeof window !== 'undefined' && window.Vue) install(window.Vue);

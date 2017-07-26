@@ -74,7 +74,6 @@
 </template>
 
 <script>
-  import game from '../components/game';
   import history from '../untils/gameSearchHistory';
   import hotGames from '../data/hotGames';
 
@@ -84,10 +83,6 @@
 
   export default {
     name: 'Search',
-    components: {
-      sGame: game
-    },
-    props: {},
     data () {
       return {
 

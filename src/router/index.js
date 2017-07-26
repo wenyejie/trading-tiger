@@ -3,9 +3,6 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-import index from '../view/index.vue';
-import search from '../view/search.vue';
-import gallery from '../view/gallery.vue';
 import guide from './guide';
 import personal from './personal';
 import user from './user';
@@ -22,21 +19,23 @@ export function createRouter () {
       {
         path: '/',
         name: 'index',
-        component: index
+        component: resolve => require(['../view/index.vue'], resolve)
       },
 
       // 搜索
       {
         path: '/search',
         name: 'search',
-        component: search
+        component: resolve => {
+          require(['../view/search.vue'], resolve);
+        }
       },
 
       // 画廊
       {
         path: '/gallery',
         name: 'gallery',
-        component: gallery
+        component: resolve => require(['../view/gallery.vue'], resolve)
       },
 
       guide,

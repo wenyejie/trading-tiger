@@ -5,31 +5,6 @@
  * date: 2017/04/27
  */
 
-import service from '../view/order/service.vue';
-import details from '../view/order/details.vue';
-import history from '../view/order/history.vue';
-
-import apply from '../view/order/arbitration/apply.vue';
-import progress from '../view/order/arbitration/progress.vue';
-import credentials from '../view/order/arbitration/credentials.vue';
-
-import sellerIndex from '../view/order/seller/index.vue';
-import sellerTrading from '../view/order/seller/trading.vue';
-import sellerReceive from '../view/order/seller/receive.vue';
-import sellerArbitrating from '../view/order/seller/arbitrating.vue';
-import sellerSuccessful from '../view/order/seller/successful.vue';
-import sellerFailure from '../view/order/seller/failure.vue';
-
-import buyerIndex from '../view/order/buyer/index.vue';
-import buyerEvidence from '../view/order/buyer/evidence.vue';
-import buyerExtract from '../view/order/buyer/extract.vue';
-import buyerUnpaid from '../view/order/buyer/unpaid.vue';
-import buyerTrading from '../view/order/buyer/trading.vue';
-import buyerUnreceive from '../view/order/buyer/unreceive.vue';
-import buyerArbitrating from '../view/order/buyer/arbitrating.vue';
-import buyerFailure from '../view/order/buyer/failure.vue';
-import buyerSuccessful from '../view/order/buyer/successful.vue';
-
 export default {
   path: '/order',
   component: {
@@ -50,19 +25,25 @@ export default {
         // 仲裁申请
         {
           path: 'apply',
-          component: apply
+          component: resolve => {
+            require(['../view/order/arbitration/apply.vue'], resolve);
+          }
         },
 
         // 仲裁进度
         {
           path: 'progress',
-          component: progress
+          component: resolve => {
+            require(['../view/order/arbitration/progress.vue'], resolve);
+          }
         },
 
         // 添加新凭证
         {
           path: 'credentials',
-          component: credentials
+          component: resolve => {
+            require(['../view/order/arbitration/credentials.vue'], resolve);
+          }
         }
       ]
     },
@@ -79,37 +60,49 @@ export default {
         // 订单列表
         {
           path: '',
-          component: sellerIndex
+          component: resolve => {
+            require(['../view/order/seller/index.vue'], resolve);
+          }
         },
 
         // 交易中
         {
           path: 'trading',
-          component: sellerTrading
+          component: resolve => {
+            require(['../view/order/seller/trading.vue'], resolve);
+          }
         },
 
         // 已发货, 待买家确认收获
         {
           path: 'receive',
-          component: sellerReceive
+          component: resolve => {
+            require(['../view/order/seller/receive.vue'], resolve);
+          }
         },
 
         // 仲裁中
         {
           path: 'arbitrating',
-          component: sellerArbitrating
+          component: resolve => {
+            require(['../view/order/seller/arbitrating.vue'], resolve);
+          }
         },
 
         // 交易成功
         {
           path: 'successful',
-          component: sellerSuccessful
+          component: resolve => {
+            require(['../view/order/seller/successful.vue'], resolve);
+          }
         },
 
         // 交易失败
         {
           path: 'failure',
-          component: sellerFailure
+          component: resolve => {
+            require(['../view/order/seller/failure.vue'], resolve);
+          }
         }
 
       ]
@@ -127,55 +120,73 @@ export default {
         // 订单列表
         {
           path: '',
-          component: buyerIndex
+          component: resolve => {
+            require(['../view/order/buyer/index.vue'], resolve);
+          }
         },
 
         // 交易证明
         {
           path: 'evidence',
-          component: buyerEvidence
+          component: resolve => {
+            require(['../view/order/buyer/evidence.vue'], resolve);
+          }
         },
 
         // 提取账号密码
         {
           path: 'extract',
-          component: buyerExtract
+          component: resolve => {
+            require(['../view/order/buyer/extract.vue'], resolve);
+          }
         },
 
         // 未支付
         {
           path: 'unpaid',
-          component: buyerUnpaid
+          component: resolve => {
+            require(['../view/order/buyer/unpaid.vue'], resolve);
+          }
         },
 
         // 交易中
         {
           path: 'trading',
-          component: buyerTrading
+          component: resolve => {
+            require(['../view/order/buyer/trading.vue'], resolve);
+          }
         },
 
         // 待收货
         {
           path: 'unreceive',
-          component: buyerUnreceive
+          component: resolve => {
+            require(['../view/order/buyer/unreceive.vue'], resolve);
+          }
         },
 
         // 仲裁中
         {
           path: 'arbitrating',
-          component: buyerArbitrating
+          component: resolve => {
+            require(['../view/order/buyer/arbitrating.vue'], resolve);
+          }
         },
 
         // 交易失败
         {
           path: 'failure',
-          component: buyerFailure
+          component: resolve => {
+            require(['../view/order/buyer/failure.vue'], resolve);
+          }
         },
 
         // 交易成功
         {
           path: 'successful',
-          component: buyerSuccessful
+          component: resolve => {
+            require(['../view/order/buyer/successful.vue'], resolve);
+          }
         }
 
       ]
@@ -184,19 +195,25 @@ export default {
     // 发货客服
     {
       path: 'service',
-      component: service
+      component: resolve => {
+        require(['../view/order/service.vue'], resolve);
+      }
     },
 
     // 交易证明
     {
       path: 'details',
-      component: details
+      component: resolve => {
+        require(['../view/order/details.vue'], resolve);
+      }
     },
 
     // 查看历史记录
     {
       path: 'history',
-      component: history
+      component: resolve => {
+        require(['../view/order/history.vue'], resolve);
+      }
     }
 
   ]

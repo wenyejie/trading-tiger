@@ -37,6 +37,8 @@
 
 <script>
 
+  import CONFIG from '../../../publish/config';
+
   // token有效开始时间，toekn
   let startTime, token;
 

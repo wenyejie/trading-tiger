@@ -94,9 +94,11 @@
     beforeDestroy () {
       viewport.content = 'width=device-width, initial-scale=1, user-scalable=no'
     },
-    created () {
+    mounted () {
       viewport = document.querySelector('[name="viewport"]');
       viewport.content = 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=yes';
+    },
+    created () {
       this.init();
     }
   }

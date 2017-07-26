@@ -6,32 +6,28 @@
  * date: 2017/04/27
  */
 
-import index from '../view/user/index.vue';
-import login from '../view/user/login.vue';
-import register from '../view/user/register.vue';
-import findPwd from '../view/user/findPwd.vue';
 
 export default {
   path: '/user',
-  component: index,
+  component: resolve => require(['../view/user/index.vue'], resolve),
   children: [
 
     // 登录
     {
       path: 'login',
-      component: login
+      component: resolve => require(['../view/user/login.vue'], resolve)
     },
 
     // 注册
     {
       path: 'register',
-      component: register
+      component: resolve => require(['../view/user/register.vue'], resolve)
     },
 
     // 找回密码
     {
       path: 'findPwd',
-      component: findPwd
+      component: resolve => require(['../view/user/findPwd.vue'], resolve)
     }
 
 

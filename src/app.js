@@ -2,15 +2,10 @@ import './untils/babel';
 import './untils/local';
 import './untils/session';
 import Vue from 'vue';
-// import cookie from './core/vue-cookie';
+import cookie from './core/vue-cookie';
 import CONFIG from '../publish/config';
 
-// Vue.prototype.$cookie = cookie;
-
-// components
-/*import components from './components';
-
-Vue.use(components);*/
+Vue.prototype.$cookie = cookie;
 
 // axios
 import axios from 'axios';
@@ -19,7 +14,7 @@ axiosFinally.shim();
 
 Vue.prototype.$http = axios.create({
   baseURL: '//' + CONFIG.BASE_PATH,
-  timeout: 10000,
+  timeout: 30000,
   withCredentials: true
 });
 
@@ -29,6 +24,11 @@ import {createRouter} from './router';
 import {sync} from 'vuex-router-sync';
 import titleMixin from './util/title';
 import * as filters from './util/filters';
+
+// components
+import components from './components';
+
+Vue.use(components);
 
 // mixin for handling title
 Vue.mixin(titleMixin);

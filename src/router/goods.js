@@ -5,12 +5,6 @@
  * date: 2017/04/22
  */
 
-import index from '../view/goods/index.vue';
-import detail from '../view/goods/detail.vue';
-import preview from '../view/goods/preview.vue';
-import buy from '../view/goods/buy.vue';
-import payment from '../view/goods/payment.vue';
-
 export default {
   path: '/goods',
   component: {
@@ -23,40 +17,34 @@ export default {
     {
       path: '',
       name: 'indexGoods',
-      meta: {
-        keepAlive: true
-      },
-      component: index
+      component: resolve => require(['../view/goods/index.vue'], resolve)
     },
 
     // 商品详情
     {
       path: 'detail',
       name: 'detailGoods',
-      meta: {
-        keepAlive: true
-      },
-      component: detail
+      component: resolve => require(['../view/goods/detail.vue'], resolve)
     },
 
     // 商品预览
     {
       path: 'preview',
-      component: preview
+      component: resolve => require(['../view/goods/preview.vue'], resolve)
     },
 
     // 下单购买
     {
       path: 'buy',
       name: 'buyGoods',
-      component: buy
+      component: resolve => require(['../view/goods/buy.vue'], resolve)
     },
 
     // 等待返回支付结果
     {
       path: 'payment',
       name: 'paymentGoods',
-      component: payment
+      component: resolve => require(['../view/goods/payment.vue'], resolve)
     }
 
   ]
