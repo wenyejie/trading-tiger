@@ -213,9 +213,9 @@
             pageSize
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
             debugger;
-            const historyList = response.body.data.list;
+            const historyList = response.data.data.list;
             historyList.reverse();
             let result = [];
             historyList.forEach(item => {
@@ -224,8 +224,8 @@
             });
             if (historyList.length < pageSize) this.completed = true;
             this.messages = result.concat(this.messages);
-            this.pageSize = response.body.data.pageSize;
-            this.currentPage = response.body.data.currentPage;
+            this.pageSize = response.data.data.pageSize;
+            this.currentPage = response.data.data.currentPage;
 
             // 只有为第一页时才滚动到底部
             if (currentPage === 0) this.messageBottom();

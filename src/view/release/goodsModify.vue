@@ -301,10 +301,10 @@
             goodsId: this.goods.goodsId
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.goodsModifyConfig = response.body.data;
+            if (response.data.code !== '000') return false;
+            this.goodsModifyConfig = response.data.data;
             this.dataSync(this.goodsModifyConfig);
-            local.set('goodsModifyConfig', response.body.data);
+            local.set('goodsModifyConfig', response.data.data);
           })
           .finally(() => this.getTemplateLoading = false);
 

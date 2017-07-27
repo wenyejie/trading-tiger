@@ -457,9 +457,9 @@
             .$http
             .post('/h5/qiniu/getUploadToken')
             .then(response => {
-              if (response.body.code !== '000') return false;
+              if (response.data.code !== '000') return false;
               startTime = new Date();
-              token = response.body.data.uploadToken;
+              token = response.data.data.uploadToken;
               resolve();
             })
         });
@@ -485,8 +485,8 @@
                 offCredentials: true
               })
               .then(response => {
-                if (response && response.body.key) {
-                  obj.url = `//${this.domain}/${response.body.key}`;
+                if (response && response.data.key) {
+                  obj.url = `//${this.domain}/${response.data.key}`;
                   this.reportLog(obj.url);
                   this.modelValue.push(obj.url);
                   this.$emit('input', this.modelValue);

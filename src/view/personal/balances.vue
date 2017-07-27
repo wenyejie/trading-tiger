@@ -115,11 +115,11 @@
             }
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.balances = this.balances.concat(response.body.data.list);
+            if (response.data.code !== '000') return false;
+            this.balances = this.balances.concat(response.data.data.list);
             this.currentPage = currentPage;
             this.pageSize = pageSize;
-            this.completed = response.body.data.list.length < pageSize;
+            this.completed = response.data.data.list.length < pageSize;
           })
           .finally(() => this.loading = false);
       }

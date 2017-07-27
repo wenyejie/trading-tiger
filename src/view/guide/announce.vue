@@ -50,8 +50,8 @@
             announceId: id
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.announce = response.body.data;
+            if (response.data.code !== '000') return false;
+            this.announce = response.data.data;
           })
           .finally(() => this.loading = false);
       },

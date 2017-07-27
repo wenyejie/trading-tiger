@@ -106,9 +106,9 @@
             .$http
             .post('/h5/token/getFormSubmitToken')
             .then(response => {
-              if (response.body.code !== '000') return false;
-              this.releaseInfo.formToken = response.body.data.formToken;
-              this.releaseInfo.formId = response.body.data.formId;
+              if (response.data.code !== '000') return false;
+              this.releaseInfo.formToken = response.data.data.formToken;
+              this.releaseInfo.formId = response.data.data.formId;
             })
             .finally(() => this.getFormTokening = false);
       },
@@ -130,7 +130,7 @@
           .$http
           .post('/h5/seller/publish/updateGoodsInfo', this.releaseInfo)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
             this.$Message.success('商品修改成功！');
             this.$router.replace({
               path: 'goodsClass',

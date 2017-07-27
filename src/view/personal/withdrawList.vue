@@ -103,11 +103,11 @@
             }
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.withdraws = this.withdraws.concat(response.body.data.list);
-            this.currentPage = response.body.data.currentPage;
-            this.pageSize = response.body.data.pageSize;
-            this.completed = response.body.data.list.length < pageSize;
+            if (response.data.code !== '000') return false;
+            this.withdraws = this.withdraws.concat(response.data.data.list);
+            this.currentPage = response.data.data.currentPage;
+            this.pageSize = response.data.data.pageSize;
+            this.completed = response.data.data.list.length < pageSize;
           })
           .finally(() => this.loading = false);
       }

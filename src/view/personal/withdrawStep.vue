@@ -94,9 +94,9 @@
             params: {payFlowId: this.payFlowId}
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.info = response.body.data.infoMap;
-            this.status = response.body.data.statusMap;
+            if (response.data.code !== '000') return false;
+            this.info = response.data.data.infoMap;
+            this.status = response.data.data.statusMap;
           })
           .finally(() => this.loading = false);
       }

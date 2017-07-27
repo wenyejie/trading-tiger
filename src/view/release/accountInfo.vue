@@ -106,14 +106,14 @@
               subClassId: this.releaseInfo.subClassId
             })
             .then(response => {
-              if (response.body.code !== '000') {
+              if (response.data.code !== '000') {
                 reject();
                 return false;
               }
-              response.body.data.list.forEach(item => {
+              response.data.data.list.forEach(item => {
                 item.attrType = 2;
               });
-              resolve(response.body.data.list);
+              resolve(response.data.data.list);
             }, reject)
             .catch(reject)
         });
@@ -133,11 +133,11 @@
                 subClassId: this.releaseInfo.subClassId
               }
             ).then(response => {
-            if (response.body.code !== '000') {
+            if (response.data.code !== '000') {
               reject();
               return false;
             }
-            resolve(response.body.data.list);
+            resolve(response.data.data.list);
           }, reject)
         })
 
@@ -204,21 +204,21 @@
           .$http
           .post('/h5/token/getFormSubmitToken')
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.releaseInfo.formToken = response.body.data.formToken;
-            this.releaseInfo.formId = response.body.data.formId;
-            this.mobile = response.body.data.mobile;
+            if (response.data.code !== '000') return false;
+            this.releaseInfo.formToken = response.data.data.formToken;
+            this.releaseInfo.formId = response.data.data.formId;
+            this.mobile = response.data.data.mobile;
           });*/
         return new Promise((resolve, reject) => {
           this
             .$http
             .post('/h5/token/getFormSubmitToken')
             .then(response => {
-              if (response.body.code !== '000') resolve();
-              this.releaseInfo.formToken = response.body.data.formToken;
-              this.releaseInfo.formId = response.body.data.formId;
-              this.mobile = response.body.data.mobile;
-              resolve(response.body.data.mobile);
+              if (response.data.code !== '000') resolve();
+              this.releaseInfo.formToken = response.data.data.formToken;
+              this.releaseInfo.formId = response.data.data.formId;
+              this.mobile = response.data.data.mobile;
+              resolve(response.data.data.mobile);
             }, reject);
         });
       },
@@ -240,7 +240,7 @@
           .post('/h5/seller/publish/publishGoods', this.releaseInfo)
           .then(response => {
 
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
             this.$Message.success('商品发布成功！');
 
@@ -252,7 +252,7 @@
               domainId: this.releaseInfo.domainId,
               serverId: this.releaseInfo.serverId,
               hasAccount: this.$route.query.hasAccount
-            }, this.$route.query, response.body.data);
+            }, this.$route.query, response.data.data);
 
             this.$router.replace({
               path: 'success',

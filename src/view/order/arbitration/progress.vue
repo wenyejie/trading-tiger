@@ -165,7 +165,7 @@
                 orderId: this.orderId
               })
               .then(response => {
-                if (response.body.code !== '000') return false;
+                if (response.data.code !== '000') return false;
                 this.$Message.success('取消仲裁成功!');
                 this.$router.go(-1);
               })
@@ -185,12 +185,12 @@
             orderId: this.orderId
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            if (response.body.data.orderDisputeInfo === null) {
+            if (response.data.code !== '000') return false;
+            if (response.data.data.orderDisputeInfo === null) {
               this.$Message.warning('拉取历史记录错误!');
               return false;
             }
-            this.progress = response.body.data.orderDisputeInfo;
+            this.progress = response.data.data.orderDisputeInfo;
           })
           .finally(() => {
             this.loading = false;

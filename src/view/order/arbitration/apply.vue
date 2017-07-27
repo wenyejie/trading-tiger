@@ -165,7 +165,7 @@
         this.$http
           .post('/h5/buyer/dispute/buyerDisputeOrder', this.apply, {loading: true})
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
             // 存储在本地, 避免重复提交
             sessionStorage.setItem('lastArbitrationApplyOrderId', this.apply.orderId);

@@ -66,8 +66,8 @@
           .$http
           .post('/h5/user/balanceDetails', {payFlowId: this.payFlowId})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.balances = response.body.data;
+            if (response.data.code !== '000') return false;
+            this.balances = response.data.data;
           })
           .finally(() => this.loading = false);
       }

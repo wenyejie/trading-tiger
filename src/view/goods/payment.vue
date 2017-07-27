@@ -125,8 +125,8 @@
           .$http
           .post('/h5/buyer/queryOrderInfo', {orderId: this.orderId})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.order = response.body.data;
+            if (response.data.code !== '000') return false;
+            this.order = response.data.data;
             if (this.order.orderStatus === 3) {
               this.$Message.success('订单支付成功！');
               this.$router.push({

@@ -123,7 +123,7 @@
               goodsStatus: goodsStatus
             })
             .then(response => {
-              if (response.body.code !== '000') reject();
+              if (response.data.code !== '000') reject();
               else resolve();
             }, reject);
         });

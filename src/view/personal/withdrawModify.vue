@@ -84,7 +84,7 @@
           .$http
           .post('/h5/user/checkAlipayAccount', this.withdraw)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
             window.withdrawOldAlipayAccount = this.withdraw.alipayAccount;
             this.$router.push({
@@ -104,8 +104,8 @@
           .$http
           .post('/h5/user/updateAlipayAccountTips')
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.already = response.body.data;
+            if (response.data.code !== '000') return false;
+            this.already = response.data.data;
           })
           .finally(() => this.loading = false);
 

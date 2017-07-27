@@ -167,9 +167,9 @@
           .$http
           .post('/h5/token/getFormSubmitToken')
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.form.formToken = response.body.data.formToken;
-            this.form.formId = response.body.data.formId;
+            if (response.data.code !== '000') return false;
+            this.form.formToken = response.data.data.formToken;
+            this.form.formId = response.data.data.formId;
 
           });
       },
@@ -226,7 +226,7 @@
           .$http
           .post('/h5/user/sendSmscode', param)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
             this.$Message.success('验证码发送成功！');
           })
           .finally(() => this.sending = false);
@@ -269,9 +269,9 @@
           .$http
           .post('/h5/buyer/buy', this.form)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
-            const redirectUrl = response.body.data.redirectUrl;
+            const redirectUrl = response.data.data.redirectUrl;
 
             // 重定向地址
             if (redirectUrl) location.href = redirectUrl;
@@ -293,13 +293,13 @@
             .$http
             .post('/h5/token/verifyUserToken')
             .then(response => {
-              if (response.body.code !== '000') {
+              if (response.data.code !== '000') {
                 reject();
                 return false;
               }
-              this.mobile = response.body.data.mobile;
+              this.mobile = response.data.data.mobile;
               if (!this.mobile) this.hasToken = false;
-              resolve(response.body.data.mobile);
+              resolve(response.data.data.mobile);
             }, reject);
         });
       },
@@ -372,12 +372,12 @@
               subClassId
             })
             .then(response => {
-              if (response.body.code !== '000') {
+              if (response.data.code !== '000') {
                 reject();
                 return false;
               }
-              // this.dataSync(response.body.data.list);
-              resolve(response.body.data.list);
+              // this.dataSync(response.data.data.list);
+              resolve(response.data.data.list);
             }, reject)
 
         });
@@ -406,11 +406,11 @@
             .$http
             .post('/h5/buyer/queryGoodsOrder', {goodsId: this.form.goodsId})
             .then(response => {
-              if (response.body.code !== '000') {
+              if (response.data.code !== '000') {
                 reject();
                 return false;
               }
-              this.goods = response.body.data;
+              this.goods = response.data.data;
               this
                 .getBuyerTemp(this.goods.subClassId)
                 .then(resolve, reject);

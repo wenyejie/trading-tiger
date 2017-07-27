@@ -69,8 +69,8 @@
             }
           )
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.clientList = response.body.data.list;
+            if (response.data.code !== '000') return false;
+            this.clientList = response.data.data.list;
           })
           .finally(() => {
             this.loading = false;
@@ -97,15 +97,15 @@
               }
             )
             .then(response => {
-              if (response.body.code !== '000') {
+              if (response.data.code !== '000') {
                 reject();
                 return false;
               }
 
               // 保存至store，未来页需要调用
-              local.set('serviceAreaList', response.body.data.list);
+              local.set('serviceAreaList', response.data.data.list);
 
-              response.body.data.list.length >= 1 ? resolve() : reject();
+              response.data.data.list.length >= 1 ? resolve() : reject();
 
             })
             .finally(() => {

@@ -221,8 +221,8 @@
             offMsg: true
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.goods = Object.assign({}, this.goods, response.body.data);
+            if (response.data.code !== '000') return false;
+            this.goods = Object.assign({}, this.goods, response.data.data);
           })
           .finally(() => this.loading = false);
       },

@@ -94,8 +94,8 @@
             }
           )
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.goodsTypeList = response.body.data.list;
+            if (response.data.code !== '000') return false;
+            this.goodsTypeList = response.data.data.list;
           })
           .finally(() => {
             this.loading = false;

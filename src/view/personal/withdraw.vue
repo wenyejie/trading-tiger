@@ -168,11 +168,11 @@
           .$http
           .post('/h5/user/fastWithdrawal', this.withdraw)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
             this.$router.replace({
               path: '/personal/withdrawStep',
               query: {
-                payFlowId: response.body.data.payFlowId
+                payFlowId: response.data.data.payFlowId
               }
             });
           })
@@ -187,9 +187,9 @@
           .$http
           .post('/h5/user/withdrawalTips')
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.withdrawInfo = response.body.data;
-            this.payChannels = response.body.data.payChannels[0];
+            if (response.data.code !== '000') return false;
+            this.withdrawInfo = response.data.data;
+            this.payChannels = response.data.data.payChannels[0];
           })
           .finally(() => this.loading = false);
       }

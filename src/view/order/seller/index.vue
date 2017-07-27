@@ -47,8 +47,8 @@
             isBuyer: 2
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.count = response.body.data;
+            if (response.data.code !== '000') return false;
+            this.count = response.data.data;
           })
           .finally(() => this.loading = false);
       }

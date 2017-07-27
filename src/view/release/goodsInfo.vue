@@ -264,8 +264,8 @@
             clientId: this.releaseInfo.clientId
           }, {loading: true})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.accountTypes = response.body.data.list;
+            if (response.data.code !== '000') return false;
+            this.accountTypes = response.data.data.list;
 
             if (this.accountTypes.length === 0) {
               this.$Dialog.alert('账号类型数据错误，请联系客服！');
@@ -328,8 +328,8 @@
             }
           )
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.dataSync(response.body.data.list);
+            if (response.data.code !== '000') return false;
+            this.dataSync(response.data.data.list);
           })
           .finally(() => {
             this.loading = false;

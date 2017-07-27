@@ -143,7 +143,7 @@
           .$http
           .post('/h5/user/setAlipayAccount', this.withdraw)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
             this.$router.push({
               path: '/personal/withdrawSetSuccess',
               query: {
@@ -175,8 +175,8 @@
           .$http
           .post('/h5/user/sendSmdByUid', param)
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.$Message.success(`验证码已发送至您的手机号${response.body.data.mobile}，请留意`);
+            if (response.data.code !== '000') return false;
+            this.$Message.success(`验证码已发送至您的手机号${response.data.data.mobile}，请留意`);
           })
           .finally(() => this.sending = false);
       },
@@ -190,8 +190,8 @@
           .$http
           .post('/h5/user/updateAlipayAccountTips')
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.already = response.body.data;
+            if (response.data.code !== '000') return false;
+            this.already = response.data.data;
           })
           .finally(() => this.loading = false);
 

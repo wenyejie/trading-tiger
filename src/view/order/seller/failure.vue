@@ -92,13 +92,13 @@
             pageSize
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
-            this.currentPage = response.body.data.currentPage;
+            this.currentPage = response.data.data.currentPage;
 
-            this.completed = response.body.data.list.length < pageSize;
+            this.completed = response.data.data.list.length < pageSize;
 
-            this.orderList = this.orderList.concat(response.body.data.list);
+            this.orderList = this.orderList.concat(response.data.data.list);
           })
           .finally(() => this.loading = false);
       }

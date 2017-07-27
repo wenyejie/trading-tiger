@@ -101,8 +101,8 @@
           .$http
           .post('/h5/buyer/continuePayOrder', {orderId: item.orderId})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            location.href = response.body.data.redirectUrl;
+            if (response.data.code !== '000') return false;
+            location.href = response.data.data.redirectUrl;
           })
           .finally(() => this.paying = false);
       },
@@ -127,7 +127,7 @@
                 orderId: item.orderId
               })
               .then(response => {
-                if (response.body.code !== '000') return false;
+                if (response.data.code !== '000') return false;
                 this.$Message.success('订单删除成功！');
                 this.orderList.splice(index, 1);
               })
@@ -159,22 +159,22 @@
             pageSize
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
             // 计算是否拥有倒计时
-            response.body.data.list.forEach(item => {
+            response.data.data.list.forEach(item => {
               let time = Math.ceil((new Date() - new Date(item.ctime * 1000)) / 1000);
               item.hasCountdown = time <= 30 * 60;
               item.countdown = 30 * 60 - time;
               if (item.countdown >= 1800) item.countdown = 1800;
             });
 
-            this.currentPage = response.body.data.currentPage;
+            this.currentPage = response.data.data.currentPage;
 
             // 所有资源加载完成
-            if (response.body.data.list.length < pageSize) this.completed = true;
+            if (response.data.data.list.length < pageSize) this.completed = true;
 
-            this.orderList = this.orderList.concat(response.body.data.list);
+            this.orderList = this.orderList.concat(response.data.data.list);
           })
           .finally(() => this.loading = false);
       }

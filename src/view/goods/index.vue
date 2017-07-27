@@ -323,19 +323,19 @@
           .post('/h5/goods/gameGoodsFilter', param)
           .then(response => {
 
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
-            if (response.body.data.currentPage !== 0) this.goods = this.goods.concat(response.body.data.list);
-            else this.goods = response.body.data.list;
+            if (response.data.data.currentPage !== 0) this.goods = this.goods.concat(response.data.data.list);
+            else this.goods = response.data.data.list;
 
-            this.currentPage = response.body.data.currentPage;
-            this.pageSize = response.body.data.pageSize;
-            this.completed = response.body.data.list.length < pageSize;
+            this.currentPage = response.data.data.currentPage;
+            this.pageSize = response.data.data.pageSize;
+            this.completed = response.data.data.list.length < pageSize;
 
             // ******************************************
             // 当商品数据下载下来之后, 才加载其余的数据, 避免体验差
 
-            this.gameName = response.body.data.gameName || '找不到该游戏';
+            this.gameName = response.data.data.gameName || '找不到该游戏';
 
             // 其它过滤条件信息
             if (!this.phones.length) this.getGoodsFilter();
@@ -401,8 +401,8 @@
           .$http
           .post('/h5/goods/findGamePlatform', {})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.phones = response.body.data.list;
+            if (response.data.code !== '000') return false;
+            this.phones = response.data.data.list;
 
             // 如果机型ID已经存在, 但是没有机型名称则遍历数据, 导出机型名称
             if (this.query.platformId && this.phoneText === '选择机型') {
@@ -447,8 +447,8 @@
             gameId: this.query.gameId
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.categories = response.body.data.list;
+            if (response.data.code !== '000') return false;
+            this.categories = response.data.data.list;
             // this.categoriesAllItem = this.categories[0].subClassList
             this.getCategoriesAllItem(this.categories);
           })
@@ -538,8 +538,8 @@
           .$http
           .post('/h5/goods/findDomainAndServers', {gameId: this.query.gameId})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.servers = response.body.data.list;
+            if (response.data.code !== '000') return false;
+            this.servers = response.data.data.list;
             this.getServerAllItem(this.servers);
           })
           .finally(() => this.serverLoading = false);

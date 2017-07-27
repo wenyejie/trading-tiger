@@ -157,8 +157,8 @@
           .$http
           .post('/h5/game/searchGame', {gameName: this.searchKey})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.games = response.body.data.list;
+            if (response.data.code !== '000') return false;
+            this.games = response.data.data.list;
           })
           .finally(() => this.searching = false);
       },

@@ -71,8 +71,8 @@
             }
           )
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.goodsClassList = response.body.data.list;
+            if (response.data.code !== '000') return false;
+            this.goodsClassList = response.data.data.list;
           })
           .finally(() => this.loading = false);
       }

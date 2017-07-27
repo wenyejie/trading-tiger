@@ -45,8 +45,8 @@
           .$http
           .post('/h5/goods/findSellerGoodsStatistics')
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.goods = response.body.data.map;
+            if (response.data.code !== '000') return false;
+            this.goods = response.data.data.map;
 
           })
 

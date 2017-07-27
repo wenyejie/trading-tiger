@@ -92,7 +92,7 @@
         this.$http
           .post('/h5/user/login', this.login, {loading: true})
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
             const query = this.$route.query;
             delete query.redirectUrl;

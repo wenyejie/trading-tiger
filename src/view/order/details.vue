@@ -248,8 +248,8 @@
           .$http
           .post('/h5/user/order/queryUserOrderDetail', {orderId: this.orderId})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.order = response.body.data.orderDetail;
+            if (response.data.code !== '000') return false;
+            this.order = response.data.data.orderDetail;
           })
           .finally(() => this.completed = true);
       }

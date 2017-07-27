@@ -93,8 +93,8 @@
           .$http
           .post(action, params)
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.servers = response.body.data.list;
+            if (response.data.code !== '000') return false;
+            this.servers = response.data.data.list;
           })
           .finally(() => {
             this.loading = false;

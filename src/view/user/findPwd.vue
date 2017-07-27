@@ -120,7 +120,7 @@
         this.$http
           .post('/h5/user/sendSmscode', param)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
           });
       },
 
@@ -157,7 +157,7 @@
         this.$http
           .post('/h5/user/findPwd', this.findPwd)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
             this.$router.push({
               path: '/personal'
             });

@@ -247,8 +247,8 @@
             orderId: this.orderId
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.orderInfo = response.body.data.info;
+            if (response.data.code !== '000') return false;
+            this.orderInfo = response.data.data.info;
 
             // 从属性数组中提取账号密码
             this.gameAccount = (this.orderInfo.orderAccountInfos.find(item => item.attrValueType === 1) || {}).value;

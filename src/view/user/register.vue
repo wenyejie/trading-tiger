@@ -174,8 +174,8 @@
             offMsg: true
           })
           .then(response => {
-            if (response.body.code !== '000') {
-              if (response.body.code === '027') {
+            if (response.data.code !== '000') {
+              if (response.data.code === '027') {
                 this.validMobile = false;
                 this.$Message.warning(REGD_MOBILE_TIPS);
               }
@@ -215,7 +215,7 @@
         this.$http
           .post('/h5/user/sendSmscode', param)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
           });
       },
 
@@ -255,7 +255,7 @@
         this.$http
           .post('/h5/user/register', this.register)
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
             this.$router.push({path: this.redirectUrl});
 

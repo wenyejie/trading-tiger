@@ -110,13 +110,13 @@
             pageSize: pageSize
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.goodsList = this.goodsList.concat(response.body.data.list);
+            if (response.data.code !== '000') return false;
+            this.goodsList = this.goodsList.concat(response.data.data.list);
 
-            this.currentPage = response.body.data.currentPage;
+            this.currentPage = response.data.data.currentPage;
 
             // 所有资源加载完成
-            if (response.body.data.list.length < pageSize) this.completed = true;
+            if (response.data.data.list.length < pageSize) this.completed = true;
           })
           .finally(() => {
             if (this.$route.query.from === 'modify') setTimeout(() => this.loading = false, 2000);

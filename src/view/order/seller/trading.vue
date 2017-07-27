@@ -90,14 +90,14 @@
             pageSize
           })
           .then(response => {
-            if (response.body.code !== '000') return false;
+            if (response.data.code !== '000') return false;
 
-            this.currentPage = response.body.data.currentPage;
+            this.currentPage = response.data.data.currentPage;
 
             // 所有资源加载完成
-            if (response.body.data.list.length < pageSize) this.completed = true;
+            if (response.data.data.list.length < pageSize) this.completed = true;
 
-            this.orderList = this.orderList.concat(response.body.data.list);
+            this.orderList = this.orderList.concat(response.data.data.list);
           })
           .finally(() => this.loading = false);
       }

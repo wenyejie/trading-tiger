@@ -144,8 +144,8 @@
               loading: true
             })
             .then(response => {
-              if (response.body.code !== '000') return false;
-              resolve(response.body.data.count);
+              if (response.data.code !== '000') return false;
+              resolve(response.data.data.count);
             })
         })
       },

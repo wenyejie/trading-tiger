@@ -218,8 +218,8 @@
           .$http
           .post('/h5/goods/showGoodsInfo', {goodsId: this.goodsId})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.goods = Object.assign({}, this.goods, response.body.data);
+            if (response.data.code !== '000') return false;
+            this.goods = Object.assign({}, this.goods, response.data.data);
             if (!this.goods.isSelfGoods) {
               this.$router.replace({
                 path: '/goods/detail',

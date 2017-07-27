@@ -205,7 +205,7 @@
                 nickName
               })
               .then(response => {
-                if (response.body.code !== '000') return false;
+                if (response.data.code !== '000') return false;
                 this.user.nickName = nickName;
                 this.$Message.success('昵称修改成功!');
               })
@@ -225,8 +225,8 @@
               loading: true
             })
             .then(response => {
-              if (response.body.code !== '000') return false;
-              resolve(response.body.data.count);
+              if (response.data.code !== '000') return false;
+              resolve(response.data.data.count);
             })
         })
       },
@@ -282,7 +282,7 @@
               .$http
               .post('/h5/user/logout', {uid: this.uid})
               .then(response => {
-                if (response.body.code !== '000') return false;
+                if (response.data.code !== '000') return false;
 
                 // 登出成功！ 跳转值首页
                 this.$router.push({path: '/'});
@@ -305,8 +305,8 @@
           .$http
           .get('/h5/user/account', {loading: true})
           .then(response => {
-            if (response.body.code !== '000') return false;
-            this.user = response.body.data;
+            if (response.data.code !== '000') return false;
+            this.user = response.data.data;
           })
           .finally(() => this.loading = false);
       }
