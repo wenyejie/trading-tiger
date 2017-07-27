@@ -349,6 +349,7 @@
 
   .index-swiper img {
     min-height: 3rem;
+    height: 3rem;
   }
   .index-message {
     font-size: .22rem;

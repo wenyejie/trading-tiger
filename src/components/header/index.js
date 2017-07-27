@@ -5,6 +5,6 @@
  * date: 2017/04/10
  */
 
-import Header from './header.vue';
+// import Header from './header.vue';
 
-export default Header;
+export default resolve => require(['./header.vue'], resolve);
