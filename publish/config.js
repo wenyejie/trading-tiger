@@ -10,7 +10,7 @@
 const CONFIG = {
 
   // 根请求地址
-  BASE_PATH: 'server.jiaoyihu.com',
+  BASE_PATH: 'sdh.dm.com:8081',
 
   // IM请求地址
   IM_ADDRESS: 'im.jiaoyihu.com',
@@ -60,13 +60,13 @@ if (process.env.VUE_ENV === 'client') {
   if (location.host.indexOf('dm.com') >= 0) {
 
     // 文斐
-    CONFIG.BASE_PATH = 'wfadmin.dm.com:8081';
+    // CONFIG.BASE_PATH = 'wfadmin.dm.com:8081';
 
     // 陈福敢
     // CONFIG.BASE_PATH = 'cfg.dm.com:8081';
 
     // 雷永平
-    // CONFIG.BASE_PATH = 'sdh.dm.com:8081';
+    CONFIG.BASE_PATH = 'sdh.dm.com:8081';
     // CONFIG. BASE_PATH = '192.168.18.153:8081';
 
     // dev

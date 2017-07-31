@@ -2,7 +2,7 @@ const glob = require('glob');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const base = require('./webpack.base.config');
-const SWPrecachePlugin = require('sw-precache-webpack-plugin');
+// const SWPrecachePlugin = require('sw-precache-webpack-plugin');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 
 const config = merge(base, {
@@ -36,14 +36,14 @@ const config = merge(base, {
     }),
     // extract webpack runtime & manifest to avoid vendor chunk hash changing
     // on every build.
-    new webpack.optimize.CommonsChunkPlugin({
+    /*new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest'
-    }),
+    }),*/
     new VueSSRClientPlugin()
   ]
 });
 
-if (process.env.NODE_ENV === 'production') {
+/*if (process.env.NODE_ENV === 'production') {
   config.plugins.push(
     // auto generate service worker
     new SWPrecachePlugin({
@@ -72,6 +72,6 @@ if (process.env.NODE_ENV === 'production') {
       ]
     })
   )
-}
+}*/
 
 module.exports = config;

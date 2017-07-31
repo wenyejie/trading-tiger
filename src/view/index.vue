@@ -160,6 +160,14 @@
 
 <script>
   import Vue from 'vue';
+  import app from '~/app';
+  import header from '~/header';
+  import main from '~/main';
+  import search from '~/search';
+  import row from '~/row';
+  import col from '~/col';
+  import gameGrid from '~/gameGrid';
+  import footer from '~/footer';
   import randomNum from '../untils/randomNum';
   import hotGames from '../data/hotGames';
 
@@ -176,6 +184,17 @@
 
   export default {
     name: 'index',
+    components: {
+      sApp: app,
+      sMain: main,
+      sHeader: header,
+      /*sSearch: search,
+      sRow: row,
+      sCol: col,
+      sGameGrid: gameGrid.gameGrid,
+      sGameGridItem: gameGrid.gameGridItem,
+      sFooter: footer*/
+    },
     data () {
       return {
 

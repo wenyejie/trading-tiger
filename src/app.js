@@ -4,6 +4,8 @@ import './untils/session';
 import Vue from 'vue';
 import cookie from './core/vue-cookie';
 import CONFIG from '../publish/config';
+import './styles/base.scss';
+import './styles/common.scss';
 
 Vue.prototype.$cookie = cookie;
 
@@ -14,8 +16,8 @@ axiosFinally.shim();
 
 Vue.prototype.$http = axios.create({
   baseURL: '//' + CONFIG.BASE_PATH,
-  timeout: 30000,
-  withCredentials: true
+  timeout: 30000
+  // withCredentials: true
 });
 
 import App from './App.vue';
