@@ -353,7 +353,7 @@
           .then(response => {
             if (response.data.code !== '000') return false;
             response.data.data.forEach(item => item.url && item.title && this.announces.push(item));
-          })
+          }, reject => console.log(reject))
           .finally(() => this.announcesIng = false)
       },
     },

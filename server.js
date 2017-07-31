@@ -132,12 +132,6 @@ function render (req, res) {
     context.canonical = `<link rel="alternate" media="only screen and(max-width: 640px)" href="https://www.jiaoyihu.com${req.url}" />`;
   }
 
-  if (isProd) {
-    context.configJs = `<script src="/publish/config.js"></script>`;
-  } else {
-    context.configJs = `<script src="/publish/config.js"></script>`;
-  }
-
 
   renderer.renderToString(context, (err, html) => {
 

@@ -80,16 +80,7 @@ module.exports = {
         }),
         new ExtractTextPlugin({
           filename: 'common.[chunkhash].css'
-        }),
-
-      // copy custom static assets
-      new CopyWebpackPlugin([
-        {
-          from: path.resolve(__dirname, '../publish'),
-          to: '/publish',
-          ignore: ['.*']
-        }
-      ])
+        })
       ]
     : [
         new FriendlyErrorsPlugin()

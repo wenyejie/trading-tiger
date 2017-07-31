@@ -4,7 +4,8 @@ import './untils/session';
 import Vue from 'vue';
 import cookie from './core/vue-cookie';
 import './styles';
-import '../publish/config';
+
+import CONIFG from '../publish/config';
 
 Vue.prototype.$cookie = cookie;
 
