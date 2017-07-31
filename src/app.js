@@ -3,8 +3,8 @@ import './untils/local';
 import './untils/session';
 import Vue from 'vue';
 import cookie from './core/vue-cookie';
-import CONFIG from '../publish/config';
 import './styles';
+import '../publish/config';
 
 Vue.prototype.$cookie = cookie;
 

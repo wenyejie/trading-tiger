@@ -43,20 +43,19 @@ const CONFIG = {
 
 };
 
+if (typeof window !== 'undefined') {
 
-if (process.env.VUE_ENV === 'client') {
-
-  // 判断是否支持webp
+// 判断是否支持webp
   if (CONFIG.IS_SUPPORT_WEBP === null) {
     const canvas = document.createElement('canvas');
     CONFIG.IS_SUPPORT_WEBP = canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
     canvas.remove();
   }
 
-  // 七牛图片上传地址
+// 七牛图片上传地址
   CONFIG.IMAGE_UPLOAD_ADDRESS = location.protocol === 'http:' ? 'upload.qiniu.com' : 'upload.qbox.me';
 
-  // 开发环境
+// 开发环境
   if (location.host.indexOf('dm.com') >= 0) {
 
     // 文斐
@@ -75,23 +74,26 @@ if (process.env.VUE_ENV === 'client') {
     CONFIG.IM_ADDRESS = '192.168.51.112:8581';
   }
 
-  // 测试环境
+// 测试环境
   if (location.host.indexOf('sdh-test.com') >= 0) {
     CONFIG.IM_ADDRESS = 'im.sdh-test.com';
     CONFIG.BASE_PATH = 'server.sdh-test.com';
   }
 
-  // 预发
+// 预发
   if (location.host.indexOf('www-pre.jiaoyihu.com') >= 0) {
     CONFIG.IM_ADDRESS = 'im.jiaoyihu.com';
     CONFIG.BASE_PATH = 'server-pre.jiaoyihu.com';
   }
 
-  // IM 地址根据http, https 自适应使用ws或wss
+// IM 地址根据http, https 自适应使用ws或wss
   CONFIG.IM_ADDRESS = location.protocol.replace('http', 'ws') + '//' + CONFIG.IM_ADDRESS;
 
-  window.CONFIG = CONFIG;
 }
 
-export default CONFIG;
 
+if (typeof window === 'undefined') {
+  global.CONFIG = CONFIG;
+} else {
+  window.CONFIG = CONFIG;
+}

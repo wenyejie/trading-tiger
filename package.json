@@ -17,6 +17,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "compression": "^1.6.2",
+    "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^4.0.0",
     "es6-promise": "^4.1.0",
     "express": "^4.15.2",

@@ -58,12 +58,19 @@ const serve = (path, cache) => express.static(resolve(path), {
   maxAge: cache && isProd ? 1000 * 60 * 60 * 24 * 30 : 0
 });
 
+
 app.use(compression({ threshold: 0 }));
 //app.use(favicon('./public/logo-48.png'))
 app.use('/dist', serve('./dist', true));
 app.use('/public', serve('./public', true));
 app.use('/manifest.json', serve('./manifest.json', true));
 app.use('/service-worker.js', serve('./dist/service-worker.js'));
+
+if (!isProd) {
+  const publishPath = path.posix.join('/', 'publish');
+
+  app.use(publishPath, express.static('./publish'));
+}
 
 // 1-second microcache.
 // https://www.nginx.com/blog/benefits-of-microcaching-nginx/
@@ -83,6 +90,12 @@ function render (req, res) {
 
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Server", serverInfo);
+
+  // <!-- 当前页面链接 -->
+  // <link rel="canonical" href="http://www.jiaoyihu.com/"/>
+  res.links({
+    canonical: req.url
+  });
 
   const handleError = err => {
     if (err.url) {
@@ -110,11 +123,24 @@ function render (req, res) {
 
   const context = {
     title: '交易虎_手机游戏交易平台_手游交易_帐号交易_游戏币交易_装备交易_道具交易_jiaoyihu', // default title
-    url: req.url,
-    /*head: '<script src="./publish/config.js"></script>'*/
+    url: req.url
   };
+
+  if (req.headers['user-agent'].toLocaleLowerCase().indexOf('mobile') >= 0) {
+    context.canonical = `<link rel="canonical" href="http://www.jiaoyihu.com${req.url}"/>`;
+  } else {
+    context.canonical = `<link rel="alternate" media="only screen and(max-width: 640px)" href="https://www.jiaoyihu.com${req.url}" />`;
+  }
+
+  if (isProd) {
+    context.configJs = `<script src="/publish/config.js"></script>`;
+  } else {
+    context.configJs = `<script src="/publish/config.js"></script>`;
+  }
+
+
   renderer.renderToString(context, (err, html) => {
-    debugger;
+
     if (err) {
       return handleError(err)
     }

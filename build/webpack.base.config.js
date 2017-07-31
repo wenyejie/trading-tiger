@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const vueConfig = require('./vue-loader.config');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -79,7 +80,16 @@ module.exports = {
         }),
         new ExtractTextPlugin({
           filename: 'common.[chunkhash].css'
-        })
+        }),
+
+      // copy custom static assets
+      new CopyWebpackPlugin([
+        {
+          from: path.resolve(__dirname, '../publish'),
+          to: '/publish',
+          ignore: ['.*']
+        }
+      ])
       ]
     : [
         new FriendlyErrorsPlugin()
