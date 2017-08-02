@@ -9,14 +9,14 @@
 
   <s-app>
 
-    <s-header :naturalTitle="naturalTitle">{{goods.gameName}}商品介绍
+    <s-header>{{goods.gameName}}商品介绍
       <!--v-if="$browser.isMobile"-->
       <!--<template slot="right" >
         <a href="javascript:;" @click="goodsShare" class="goodsDetail-share"></a>
       </template>-->
     </s-header>
 
-    <s-main bgc="white" :loading="loading !== false">
+    <s-main bgc="white">
 
       <!-- swiper -->
       <div v-swiper="swiperOpts"
@@ -122,6 +122,9 @@
   export default {
     name: 'detail',
     props: {},
+    keywords: '',
+    description: '',
+    title: '',
     data () {
       return {
         swiperOpts: {
@@ -139,25 +142,27 @@
 
         goodsId: null,
 
-        goods: {
+        /*goods: {
           picUrls: [],
           secrets: []
-        }
+        }*/
       }
     },
+    asyncData ({store, route}) {
+      return store.dispatch('getGoodsDetail', route.query.goodsId);
+    },
     computed: {
+      goods () {
+        /*this.loading = false;
+        const detail = this.$store.state.goodsDetail;
+        this.keywords = `${detail.gameName}${detail.subClassName},${detail.showTitle},手机游戏交易平台,交易虎（jiaoyihu.com）`;
+        this.description = `${detail.gameName}${detail.subClassName}-${detail.gameName}专区提供：${this.goods.showTitle} 。欢迎选择交易虎${detail.gameName}交易专区，了解更多关于${detail.showTitle}的信息`;
+        this.title = `${detail.gameName}${detail.goodsClassName}-${detail.showTitle}_${detail.serverName}_交易虎（jiaoyihu.com）`;*/
+        return this.$store.state.goodsDetail;
+      },
       goodsType () {
         return goodsClass(this.goods.goodsClassId, 'className');
       },
-
-      naturalTitle () {
-        if (!this.goods.gameName) return '商品详情 - 交易虎';
-
-        document.querySelector('[name="keywords"]').setAttribute('content', `${this.gameName}${this.goods.subClassName},${this.goods.showTitle},手机游戏交易平台,交易虎（jiaoyihu.com）`);
-        document.querySelector('[name="description"]').setAttribute('content', `${this.goods.gameName}${this.goods.subClassName}-${this.goods.gameName}专区提供：${this.goods.showTitle} 。欢迎选择交易虎${this.goods.gameName}交易专区，了解更多关于${this.goods.showTitle}的信息`);
-
-        return `${this.goods.gameName}${this.goods.goodsClassName}-${this.goods.showTitle}_${this.goods.serverName}_交易虎（jiaoyihu.com）`;
-      }
     },
     methods: {
 
@@ -245,7 +250,6 @@
 <style lang="scss">
 
   @import "../../styles/goodsDetail.scss";
-
   .goodsDetail-share {
     background: url('../../assets/share-white.png') no-repeat center;
     background-size: .36rem .36rem;

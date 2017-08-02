@@ -5,20 +5,12 @@ import Vue from 'vue';
 import cookie from './core/vue-cookie';
 import './styles';
 
-import CONIFG from '../publish/config';
-
 Vue.prototype.$cookie = cookie;
 
 // axios
-import axios from 'axios';
-import axiosFinally from 'promise.prototype.finally';
-axiosFinally.shim();
+import axios from './core/axios';
 
-Vue.prototype.$http = axios.create({
-  baseURL: '//' + CONFIG.BASE_PATH,
-  timeout: 30000
-  // withCredentials: true
-});
+Vue.prototype.$http = axios;
 
 import App from './App.vue';
 import {createStore} from './store';

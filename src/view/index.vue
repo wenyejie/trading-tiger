@@ -88,18 +88,11 @@
       <!-- /hotGame -->
 
       <!-- notice -->
-      <section class="index-notice">
+      <section class="index-notice" v-if="announces.length">
         <h3 class="index-title"><span>公告区</span></h3>
 
         <ul>
           <li v-for="item in announces" v-if="item.url && item.title"><a :href="item.url">{{item.title}}</a></li>
-          <li v-if="!announces.length && announcesIng === false">暂无公告......</li>
-          <!--<li>
-            <router-link to="/guide/announce?announceId=1">交易虎手游交易平台正式上线运营</router-link>
-          </li>
-          <li>
-            <router-link to="/guide/announce?announceId=2">交易虎防骗小课堂</router-link>
-          </li>-->
         </ul>
       </section>
       <!-- /notice -->
@@ -160,14 +153,6 @@
 
 <script>
   import Vue from 'vue';
-  import app from '~/app';
-  import header from '~/header';
-  import main from '~/main';
-  import search from '~/search';
-  import row from '~/row';
-  import col from '~/col';
-  import gameGrid from '~/gameGrid';
-  import footer from '~/footer';
   import randomNum from '../untils/randomNum';
   import hotGames from '../data/hotGames';
 
@@ -185,15 +170,6 @@
   export default {
     name: 'index',
     components: {
-      sApp: app,
-      sMain: main,
-      sHeader: header,
-      /*sSearch: search,
-      sRow: row,
-      sCol: col,
-      sGameGrid: gameGrid.gameGrid,
-      sGameGridItem: gameGrid.gameGridItem,
-      sFooter: footer*/
     },
     data () {
       return {
@@ -218,12 +194,6 @@
           autoplay: 5000
         },
 
-        // 公告列表
-        announces: [],
-
-        // 公告列表加载中
-        announcesIng: null,
-
         // 最近成交数据
         recentlyDeals: [],
 
@@ -233,6 +203,14 @@
         // 最近成交数据进行时
         recentlyDealing: null
       }
+    },
+    computed: {
+      announces () {
+        return this.$store.state.announces;
+      }
+    },
+    asyncData ({store}) {
+      return store.dispatch('getAnnounces');
     },
     methods: {
 
@@ -352,14 +330,16 @@
           .post('/h5/announceManage/listAnnounce')
           .then(response => {
             if (response.data.code !== '000') return false;
-            response.data.data.forEach(item => item.url && item.title && this.announces.push(item));
-          }, reject => console.log(reject))
+            const list = [];
+            response.data.data.forEach(item => item.url && item.title && list.push(item));
+            this.$store.commit('SET_ANNOUNCES', {list});
+          })
           .finally(() => this.announcesIng = false)
       },
     },
     created () {
-      this.getAnnounces();
-      this.getRecentlyDeal();
+//       this.getAnnounces();
+      // this.getRecentlyDeal();
     }
   }
 </script>

@@ -219,7 +219,7 @@
             if (obj.message) obj.message = content + msg.event_context.content;
             break;
           case 5:
-            message.event_context.subClassConf.forEach(item => {
+            message.event_context.askResponse.forEach(item => {
               obj.message = item.content;
               obj.htmlAttrs = item.htmlAttrs;
             });

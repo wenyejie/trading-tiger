@@ -59,13 +59,13 @@ if (typeof window !== 'undefined') {
   if (location.host.indexOf('dm.com') >= 0) {
 
     // 文斐
-    // CONFIG.BASE_PATH = 'wfadmin.dm.com:8081';
+    CONFIG.BASE_PATH = 'wfadmin.dm.com:8081';
 
     // 陈福敢
     // CONFIG.BASE_PATH = 'cfg.dm.com:8081';
 
     // 雷永平
-    CONFIG.BASE_PATH = 'sdh.dm.com:8081';
+    // CONFIG.BASE_PATH = 'sdh.dm.com:8081';
     // CONFIG. BASE_PATH = '192.168.18.153:8081';
 
     // dev

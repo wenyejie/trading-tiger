@@ -9,17 +9,15 @@ Vue.use(Vuex);
 export function createStore () {
   return new Vuex.Store({
     state: {
-      /*activeType: null,
-      itemsPerPage: 20,
-      items: {/!* [id: number]: Item *!/},
-      users: {/!* [id: string]: User *!/},
-      lists: {
-        top: [/!* number *!/],
-        new: [],
-        show: [],
-        ask: [],
-        job: []
-      }*/
+
+      // 公告列表
+      announces: [],
+
+      // 商品列表
+      goodsList: [],
+
+      // 商品详情
+      goodsDetail: {}
     },
     actions,
     mutations,

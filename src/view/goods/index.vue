@@ -11,7 +11,7 @@
 
     <s-header :sellParams="sellParams" :naturalTitle="naturalTitle">{{gameName}}</s-header>
 
-    <s-main :loading="loading !== false && completed === null">
+    <s-main>
 
       <!-- 筛选 -->
       <ul class="goods-search">
@@ -24,7 +24,8 @@
           <span>{{categoryText}}</span></li>
         <li class="goods-search-item"
             @click="serverChose"
-            :class="{'selected': serverVisible, 'on': query.serverId !== -1 || query.domainId}"><span>{{serverText}}</span></li>
+            :class="{'selected': serverVisible, 'on': query.serverId !== -1 || query.domainId}">
+          <span>{{serverText}}</span></li>
         <li class="goods-search-item"
             @click="sortChose"
             :class="{'selected': sortVisible, 'on': query.sortRule !== 1}"><span>{{sortText}}</span></li>
@@ -96,7 +97,8 @@
             <s-search placeholder="服务器名称/数字" text="搜索" v-model="searchKey"></s-search>
 
             <s-cell :class="{'on': query.serverId === -1 && query.domainId === undefined}"
-                    @click="serverSelect(undefined, undefined)">全部</s-cell>
+                    @click="serverSelect(undefined, undefined)">全部
+            </s-cell>
 
             <s-cell v-for="item in serverAll.list"
                     :key="item.serverId"
@@ -114,7 +116,8 @@
                         :label="item.domainName">
 
             <s-cell :class="{'on': query.serverId === -1 && query.domainId === item.domainId}"
-                    @click="serverSelect(item, undefined)">全部</s-cell>
+                    @click="serverSelect(item, undefined)">全部
+            </s-cell>
 
             <s-cell v-for="subItem in item.serverList"
                     :key="subItem.serverId"
@@ -207,8 +210,8 @@
   export default {
     name: 'goodsList',
     components: {
-    sGoodsList: GoodsList
-  },
+      sGoodsList: GoodsList
+    },
     props: {},
     data () {
       return {
@@ -275,10 +278,13 @@
           minPrice: undefined
         },
 
-        goods: [],
+//        goods: [],
 
         searchKey: ''
       }
+    },
+    asyncData ({store, route}) {
+      return store.dispatch('getGoodsList', route.query);
     },
     methods: {
 
@@ -419,7 +425,7 @@
        * @param item 分类实例
        * @param subItem 子分类实例
        */
-      categorySelect(item, subItem) {
+      categorySelect (item, subItem) {
         if (item !== undefined) this.categoryText = item.className;
 
         if (subItem !== undefined) this.categoryText = subItem.subClassName;
@@ -610,7 +616,7 @@
           // this.$router.push({path: '/'});
           return false;
         }
-        isFromDetail ? this.fromDetail() : this.getGoods();
+//        isFromDetail ? this.fromDetail() : this.getGoods();
       },
 
       /**
@@ -675,6 +681,11 @@
     },
 
     computed: {
+
+      goods () {
+        console.log(this.$store.state.goodsList);
+        return this.$store.state.goodsList;
+      },
 
       /**
        * 标题设置

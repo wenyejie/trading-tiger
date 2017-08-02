@@ -91,12 +91,6 @@ function render (req, res) {
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Server", serverInfo);
 
-  // <!-- 当前页面链接 -->
-  // <link rel="canonical" href="http://www.jiaoyihu.com/"/>
-  res.links({
-    canonical: req.url
-  });
-
   const handleError = err => {
     if (err.url) {
       res.redirect(err.url)
