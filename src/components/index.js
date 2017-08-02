@@ -40,6 +40,8 @@ import link from '../components/link';
 import attr from '../components/attr';
 import qiniuImg from '../components/qiniuImg';
 import game from '../components/game';
+import suspension from '../components/suspension';
+import label from '../components/label';
 
 const sview = {
   sApp: app,
@@ -79,7 +81,8 @@ const sview = {
   sAttr: attr,
   sGame: game,
   qiniuImg,
-
+  sSuspension: suspension,
+  sLabel: label
 };
 
 const install = Vue => {

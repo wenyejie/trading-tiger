@@ -24,7 +24,7 @@ export default {
    */
   getGoodsList ({commit}, filters) {
 
-    filters = Object.assign({}, {
+    filters = Object.assign({}, filters, {
       currentPage: 0,
       pageSize: 20
     });

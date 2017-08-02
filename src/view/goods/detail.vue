@@ -9,19 +9,14 @@
 
   <s-app>
 
-    <s-header>{{goods.gameName}}商品介绍
-      <!--v-if="$browser.isMobile"-->
-      <!--<template slot="right" >
-        <a href="javascript:;" @click="goodsShare" class="goodsDetail-share"></a>
-      </template>-->
-    </s-header>
+    <s-header>{{goods.gameName}}商品介绍</s-header>
 
     <s-main bgc="white">
 
       <!-- swiper -->
       <div v-swiper="swiperOpts"
            class="swiper-container goodsDetail-swiper"
-           v-if="goods.picUrls.length >= 1">
+           v-if="goods.picUrls.length">
         <div class="swiper-wrapper">
           <div class="swiper-slide goodsDetail-slide"
                v-for="(item, index) in goods.picUrls"
@@ -35,7 +30,6 @@
           </div>
           <div class="swiper-pagination swiper-pagination-bullets"></div>
         </div>
-        <div class="swiper-pagination"></div>
       </div>
       <!-- /swiper -->
 
@@ -96,7 +90,7 @@
         <p>2.国家法律规定，未成年人不能参与虚拟物品交易</p>
       </s-panel>
 
-      <s-suspension shadow class="goodsDetail-suspension">
+      <s-suspension v-if="showSuspension" shadow class="goodsDetail-suspension">
         <s-button type="gray" v-if="goods.goodsStatus === 1 || goods.goodsStatus === 2" disabled block>待审核</s-button>
         <s-button type="primary" v-if="goods.goodsStatus === 3" block shadow @click="buy">立即购买</s-button>
         <s-button type="gray" v-if="goods.goodsStatus === 6" disabled block>宝贝已售罄</s-button>
@@ -105,8 +99,6 @@
                   disabled block>宝贝已下架
         </s-button>
       </s-suspension>
-
-      <s-nothing status="goods" v-if="loading === false && !goods.gameName"></s-nothing>
 
       <!-- 分享 -->
       <!--<s-share v-model="sharePopup"></s-share>-->
@@ -117,7 +109,13 @@
 </template>
 
 <script>
+  import Vue from 'vue';
   import goodsClass from '../../filters/goodsClass';
+
+  if (process.env.VUE_ENV === 'client') {
+    const VueAwesomeSwiper = require('vue-awesome-swiper/ssr');
+    Vue.use(VueAwesomeSwiper);
+  }
 
   export default {
     name: 'detail',
@@ -138,14 +136,7 @@
         // 分享弹出框
         sharePopup: null,
 
-        loading: null,
-
-        goodsId: null,
-
-        /*goods: {
-          picUrls: [],
-          secrets: []
-        }*/
+        showSuspension: false
       }
     },
     asyncData ({store, route}) {
@@ -153,11 +144,6 @@
     },
     computed: {
       goods () {
-        /*this.loading = false;
-        const detail = this.$store.state.goodsDetail;
-        this.keywords = `${detail.gameName}${detail.subClassName},${detail.showTitle},手机游戏交易平台,交易虎（jiaoyihu.com）`;
-        this.description = `${detail.gameName}${detail.subClassName}-${detail.gameName}专区提供：${this.goods.showTitle} 。欢迎选择交易虎${detail.gameName}交易专区，了解更多关于${detail.showTitle}的信息`;
-        this.title = `${detail.gameName}${detail.goodsClassName}-${detail.showTitle}_${detail.serverName}_交易虎（jiaoyihu.com）`;*/
         return this.$store.state.goodsDetail;
       },
       goodsType () {
@@ -194,13 +180,6 @@
       },
 
       /**
-       * 商品分享
-       */
-      goodsShare () {
-        this.sharePopup = !this.sharePopup;
-      },
-
-      /**
        * 立即购买, 跳转到购买页
        */
       buy () {
@@ -211,38 +190,10 @@
           }
         })
       },
-
-      /**
-       * 获取商品详情
-       */
-      getDetail () {
-        if (this.loading) return false;
-        this.loading = true;
-        this
-          .$http
-          .post('/h5/goods/showGoodsInfo', {
-            goodsId: this.goodsId
-          }, {
-            offMsg: true
-          })
-          .then(response => {
-            if (response.data.code !== '000') return false;
-            this.goods = Object.assign({}, this.goods, response.data.data);
-          })
-          .finally(() => this.loading = false);
-      },
-
-      /**
-       * 页面初始化
-       */
-      init () {
-        this.goodsId = parseInt(this.$route.query.goodsId);
-        this.getDetail();
-      }
     },
 
-    created () {
-      this.init();
+    mounted () {
+      this.showSuspension = true;
     }
   }
 </script>

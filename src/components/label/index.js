@@ -5,6 +5,6 @@
  * date: 2017/04/10
  */
 
-import label from './label.vue';
+// import label from './label.vue';
 
-export default label;
+export default resolve => require(['./label.vue'], resolve);
