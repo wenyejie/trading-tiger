@@ -10,7 +10,7 @@ import axiosFinally from 'promise.prototype.finally';
 axiosFinally.shim();
 
 export default axios.create({
-  baseURL: 'http://wfadmin.dm.com:8081',
+  baseURL: 'https://server.jiaoyihu.com',
   timeout: 30000
   // withCredentials: true
 });

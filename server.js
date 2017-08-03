@@ -7,6 +7,8 @@ const compression = require('compression');
 const resolve = file => path.resolve(__dirname, file);
 const { createBundleRenderer } = require('vue-server-renderer');
 
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const isProd = process.env.NODE_ENV === 'production';
 const useMicroCache = process.env.MICRO_CACHE !== 'false';
 const serverInfo =
@@ -60,17 +62,13 @@ const serve = (path, cache) => express.static(resolve(path), {
 
 
 app.use(compression({ threshold: 0 }));
-//app.use(favicon('./public/logo-48.png'))
+app.use(favicon('./favicon.ico'));
 app.use('/dist', serve('./dist', true));
 app.use('/public', serve('./public', true));
+app.use('/', serve('./', true));
 app.use('/manifest.json', serve('./manifest.json', true));
 app.use('/service-worker.js', serve('./dist/service-worker.js'));
-
-if (!isProd) {
-  const publishPath = path.posix.join('/', 'publish');
-
-  app.use(publishPath, express.static('./publish'));
-}
+// app.use(path.posix.join('/', 'publish'), express.static('./publish'));
 
 // 1-second microcache.
 // https://www.nginx.com/blog/benefits-of-microcaching-nginx/
@@ -87,6 +85,8 @@ const isCacheable = req => useMicroCache;
 
 function render (req, res) {
   const s = Date.now();
+
+  console.log('.................', req.url);
 
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Server", serverInfo);
@@ -126,8 +126,14 @@ function render (req, res) {
     context.canonical = `<link rel="alternate" media="only screen and(max-width: 640px)" href="https://www.jiaoyihu.com${req.url}" />`;
   }
 
+  const renderData = (err) => {
+
+  };
+
 
   renderer.renderToString(context, (err, html) => {
+
+    if (req.url.indexOf('.xml'))
 
     if (err) {
       return handleError(err)
@@ -146,7 +152,7 @@ app.get('*', isProd ? render : (req, res) => {
   readyPromise.then(() => render(req, res))
 });
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || (isProd ? 8080 : 8080);
 app.listen(port, () => {
   console.log(`server started at localhost:${port}`)
 });

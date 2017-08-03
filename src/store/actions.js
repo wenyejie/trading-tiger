@@ -34,8 +34,6 @@ export default {
 
         const data = response.data.data;
 
-        console.log(data);
-
         commit('SET_GOODS_LIST', {list: data.list});
       })
   },

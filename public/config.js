@@ -10,7 +10,7 @@
 const CONFIG = {
 
   // 根请求地址
-  BASE_PATH: 'sdh.dm.com:8081',
+  BASE_PATH: 'server.jiaoyihu.com',
 
   // IM请求地址
   IM_ADDRESS: 'im.jiaoyihu.com',
