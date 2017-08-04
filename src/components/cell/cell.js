@@ -111,8 +111,8 @@ export default {
     },
     styles () {
       let styles = {};
-      styles.paddingLeft = this.padding + (/^\d+$/.test(this.gutter) ? 'px' : '');
-      styles.paddingRight = styles.paddingLeft;
+      if (this.padding) styles.paddingLeft = this.padding + (/^\d+$/.test(this.gutter) ? 'px' : '');
+      if (this.padding) styles.paddingRight = styles.paddingLeft;
       return styles;
     }
   }

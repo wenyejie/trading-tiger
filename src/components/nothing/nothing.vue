@@ -51,6 +51,10 @@
       title: '页面不存在或者已删除',
       icon: require('../../assets/no-404.png')
     },
+    500: {
+      title: '服务器或网络错误, 请稍候重试!',
+      icon: require('../../assets/no-network.png')
+    },
     data: {
       title: '暂无数据',
       icon: require('../../assets/no-data.png')

@@ -5,3 +5,4 @@
 
 import './base.scss';
 import './common.scss';
+import './goodsDetail.scss';

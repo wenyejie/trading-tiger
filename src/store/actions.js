@@ -32,9 +32,9 @@ export default {
       .then(response => {
         if (response.data.code !== '000') return false;
 
-        const data = response.data.data;
+        const goods = response.data.data;
 
-        commit('SET_GOODS_LIST', {list: data.list});
+        commit('SET_GOODS', {goods});
       })
   },
 

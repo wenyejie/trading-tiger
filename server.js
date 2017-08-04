@@ -20,6 +20,8 @@ const app = express();
 const template = fs.readFileSync(resolve('./src/index.html'), 'utf-8');
 
 function createRenderer (bundle, options) {
+  console.log(options.clientManifest.async);
+  options.clientManifest.async = [];
   // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
   return createBundleRenderer(bundle, Object.assign(options, {
     template,
@@ -31,7 +33,12 @@ function createRenderer (bundle, options) {
     // this is only needed when vue-server-renderer is npm-linked
     basedir: resolve('./dist'),
     // recommended for performance
-    runInNewContext: false
+    runInNewContext: false,
+
+    shouldPreload: (file, type) => {
+      console.log(file, type);
+      if (type === 'script') return false;
+    }
   }))
 }
 
@@ -95,10 +102,12 @@ function render (req, res) {
     if (err.url) {
       res.redirect(err.url)
     } else if(err.code === 404) {
-      res.status(404).end('404 | Page Not Found')
+      res.redirect('/404');
+      // res.status(404).end('404 | Page Not Found')
     } else {
       // Render Error Page or Redirect
-      res.status(500).end('500 | Internal Server Error');
+      // res.status(500).end('500 | Internal Server Error');
+      res.redirect('/500');
       console.error(`error during render : ${req.url}`);
       console.error(err.stack)
     }
@@ -117,6 +126,8 @@ function render (req, res) {
 
   const context = {
     title: '交易虎_手机游戏交易平台_手游交易_帐号交易_游戏币交易_装备交易_道具交易_jiaoyihu', // default title
+    keywords: '交易虎手机游戏交易平台,手游交易,账号交易,游戏币交易,装备道具交易,交易虎_jiaoyihu', // default keywords
+    description: '交易虎是交易最快的手游交易平台-提供免费、快速的手机游戏帐号交易、游戏币交易、装备道具交易，为用户提供最快、最安全、服务最完善的手机游戏交易平台_www.jiaoyihu.com', // default description
     url: req.url
   };
 
@@ -126,14 +137,8 @@ function render (req, res) {
     context.canonical = `<link rel="alternate" media="only screen and(max-width: 640px)" href="https://www.jiaoyihu.com${req.url}" />`;
   }
 
-  const renderData = (err) => {
-
-  };
-
 
   renderer.renderToString(context, (err, html) => {
-
-    if (req.url.indexOf('.xml'))
 
     if (err) {
       return handleError(err)
@@ -152,7 +157,7 @@ app.get('*', isProd ? render : (req, res) => {
   readyPromise.then(() => render(req, res))
 });
 
-const port = process.env.PORT || (isProd ? 8080 : 8080);
+const port = process.env.PORT || (isProd ? 80 : 80);
 app.listen(port, () => {
   console.log(`server started at localhost:${port}`)
 });

@@ -17,7 +17,9 @@ import {createStore} from './store';
 import {createRouter} from './router';
 import {sync} from 'vuex-router-sync';
 import titleMixin from './util/title';
-import * as filters from './util/filters';
+import keywordsMixin from './util/keywords';
+import descriptionMixin from './util/description';
+// import * as filters from './util/filters';
 
 // components
 import components from './components';
@@ -26,11 +28,13 @@ Vue.use(components);
 
 // mixin for handling title
 Vue.mixin(titleMixin);
+Vue.mixin(keywordsMixin);
+Vue.mixin(descriptionMixin);
 
 // register global utility filters.
-Object.keys(filters).forEach(key => {
+/*Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
-});
+});*/
 
 // Expose a factory function that creates a fresh set of store, router,
 // app instances on each call (which is called for each SSR request)

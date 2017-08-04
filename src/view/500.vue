@@ -7,18 +7,18 @@
 
 <template>
   <s-app>
-    <s-header>404</s-header>
+    <s-header>500</s-header>
     <s-main>
-      <s-nothing status="404"></s-nothing>
+      <s-nothing status="500"></s-nothing>
     </s-main>
   </s-app>
 </template>
 
 <script>
   export default {
-    name: 'page404',
+    name: 'page500',
     data () {
       return {}
-    }
+    },
   }
 </script>

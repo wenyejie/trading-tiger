@@ -9,7 +9,7 @@
 
   <s-app>
 
-    <s-header :sellParams="sellParams" :naturalTitle="naturalTitle">{{gameName}}</s-header>
+    <s-header :sellParams="sellParams">{{goods.gameName}}</s-header>
 
     <s-main>
 
@@ -34,14 +34,14 @@
 
       <!-- 商品列表 -->
       <section class="s-goodsList-wrap">
-        <s-goods-list v-for="item in goods"
+        <s-goods-list v-for="item in goods.list"
                       :key="item.goodsId"
                       :goods="item"></s-goods-list>
       </section>
       <!-- /商品列表 -->
 
       <!-- 选择机型 -->
-      <s-popup class="goods-popup phone-popup" removeDom v-model="phoneVisible" direction="top">
+      <s-popup class="goods-popup phone-popup" v-model="phoneVisible" direction="top">
         <s-cell v-for="item in phones"
                 :key="item.platformId"
                 v-if="item.platformId !== 4"
@@ -51,7 +51,7 @@
       <!-- /选择机型 -->
 
       <!-- 商品类别 -->
-      <s-popup class="goods-popup category-popup" removeDom v-model="categoryVisible" direction="top">
+      <s-popup class="goods-popup category-popup" v-model="categoryVisible" direction="top">
         <s-tabs direction="vertical" v-model="categoryModel">
           <s-tabs-panel label="全部" name="all">
             <ul class="category-popup-list">
@@ -131,7 +131,7 @@
       <!-- /服务器 -->
 
       <!-- 筛选排序 -->
-      <s-popup class="goods-popup sort-popup" removeDom v-model="sortVisible" direction="top">
+      <s-popup class="goods-popup sort-popup" v-model="sortVisible" direction="top">
         <s-cell>价格范围
           <input class="sort-popup-number"
                  min="0"
@@ -182,7 +182,7 @@
       </s-popup>
       <!-- /筛选排序 -->
 
-      <s-nothing status="goods" v-if="loading === false && !goods.length"></s-nothing>
+      <s-nothing status="goods" v-if="!goods.list.length"></s-nothing>
 
       <s-infinite :loading="loading"
                   :completed="completed"
@@ -212,7 +212,15 @@
     components: {
       sGoodsList: GoodsList
     },
-    props: {},
+    title () {
+      return this.goods.gameName ? `${this.goods.gameName}账号交易平台_${this.goods.gameName}游戏币装备道具交易平台_交易虎` : '找不到游戏';
+    },
+    keywords () {
+      return `${this.goods.gameName}账号交易,${this.goods.gameName}游戏币交易,${this.goods.gameName}装备道具交易,交易虎${this.goods.gameName}交易平台`;
+    },
+    description () {
+      return `交易虎是交易最快的${this.goods.gameName}账号交易平台,提供各种${this.goods.gameName}帐号、游戏币、装备道具价格等信息,欢迎选择${this.goods.gameName}频道`;
+    },
     data () {
       return {
 
@@ -263,8 +271,6 @@
 
         // 我要卖参数
         sellParams: {},
-
-        gameName: '',
 
         query: {
           domainId: undefined,
@@ -359,7 +365,7 @@
         // 设置我要卖的条件信息
         this.sellParams = {
           gameId: this.query.gameId,
-          gameName: this.gameName
+          gameName: this.goods.gameName
         };
 
         // 获取服务器
@@ -683,22 +689,7 @@
     computed: {
 
       goods () {
-        console.log(this.$store.state.goodsList);
-        return this.$store.state.goodsList;
-      },
-
-      /**
-       * 标题设置
-       * @return {string}
-       */
-      naturalTitle () {
-        if (!this.gameName) return '交易虎';
-
-        if (this.gameName === '找不到该游戏') return '找不到该游戏 - 交易虎';
-
-        document.querySelector('[name="keywords"]').setAttribute('content', `${this.gameName}账号交易,${this.gameName}游戏币交易,${this.gameName}装备道具交易,交易虎${this.gameName}交易平台`);
-        document.querySelector('[name="description"]').setAttribute('content', `交易虎是交易最快的${this.gameName}账号交易平台,提供各种${this.gameName}帐号、游戏币、装备道具价格等信息,欢迎选择${this.gameName}频道`);
-        return `${this.gameName}账号交易平台_${this.gameName}游戏币装备道具交易平台_交易虎`;
+        return this.$store.state.goods;
       },
 
       sortText () {

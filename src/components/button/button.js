@@ -6,7 +6,7 @@
  **/
 
 export default {
-  name: 'Button',
+  name: 'button',
   render (h) {
     let $this = this;
     let child = [];

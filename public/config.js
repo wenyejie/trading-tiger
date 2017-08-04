@@ -71,7 +71,7 @@ if (typeof window !== 'undefined') {
     // dev
     // CONFIG.BASE_PATH = 'server.sdh-dev.com';
 
-    CONFIG.IM_ADDRESS = '192.168.51.112:8581';
+    CONFIG.IM_ADDRESS = '192.168.51.111:8581';
   }
 
 // 测试环境

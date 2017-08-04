@@ -1,67 +1,28 @@
 <!doctype html>
-<!--
- - Storm
- -
- - author: Storm
- - date: 2017/07/19
- -->
 <html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta name="applicable-device" content="pc,mobile">
   <meta name="MobileOptimized" content="width"/>
   <meta name="HandheldFriendly" content="true"/>
-
-  <!-- 360网站验证 -->
   <meta name="360-site-verification" content="ecaa030be43b33fd6719469497e71755"/>
   <meta name="shenma-site-verification" content="b105696097cbdd8a3cf2425897b93c44_1499744047">
-
-  <!-- 百度网站验证 -->
   <meta name="baidu-site-verification" content="yFrsmbHooT"/>
-
-  <meta name="keywords" content="交易虎手机游戏交易平台,手游交易,账号交易,游戏币交易,装备道具交易,交易虎_jiaoyihu">
-  <meta name="description"
-        content="交易虎是交易最快的手游交易平台-提供免费、快速的手机游戏帐号交易、游戏币交易、装备道具交易，为用户提供最快、最安全、服务最完善的手机游戏交易平台_www.jiaoyihu.com">
-
-  {{{canonical}}}
-
-  <!-- 网站icon -->
-  <link rel="shortcut icon" href="/favicon.ico"/>
-
-  <!-- 对于iPhone4使用的高分辨率Retina屏幕，使用"114x114"大小的图标。-->
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/icon-114x114.png">
-
-  <!-- 对于iPad，使用"72x72"大小的图标。-->
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/icon-72x72.png">
-
-  <!--对于未使用Retina屏幕的iPhone和Android2.1以上版本的设备，使用"57x57"大小的低分辨率图标。-->
-  <link rel="apple-touch-icon-precomposed" href="/icon-57x57.png">
-
-  <!-- 启动图片 -->
-  <link rel="apple-touch-startup-image" href="/icon-114x114.png"/>
   <title>{{title}}</title>
-
-  <!-- 响应式自动变化rem初始值 -->
-  <script>!function (a) {
-    "use strict";
-
-    function f () {
-      c = b.documentElement.getBoundingClientRect().width, c >= 640 ? c = 640 : 320 >= c && (c = 320), window.rootFontSize = 100 * (c / a), b.querySelector("html").style.fontSize = window.rootFontSize + "px"
-    }
-
-    var c, e, b = document;
-    b.querySelector("html"), f(), window.addEventListener("resize", function () {
-      clearTimeout(e), e = setTimeout(f, 150)
-    }, !1), "complete" === b.readyState ? b.body.style.fontSize = ".24rem" : b.addEventListener("DOMContentLoaded", function () {
-      b.body.style.fontSize = ".24rem"
-    }, !1)
-  }(640);</script>
+  <meta name="keywords" content="{{keywords}}">
+  <meta name="description" content="{{description}}">
+  {{{canonical}}}
+  <link rel="shortcut icon" href="/public/favicon.ico"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/public/icon-114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/public/icon-72x72.png">
+  <link rel="apple-touch-icon-precomposed" href="/public/icon-57x57.png">
+  <link rel="apple-touch-startup-image" href="/public/icon-114x114.png"/>
+  <script>"use strict";!function(e){function t(){n=i.documentElement.getBoundingClientRect().width,n>=640?n=640:320>=n&&(n=320),window.rootFontSize=n/e*100,i.querySelector("html").style.fontSize=window.rootFontSize+"px"}var n,o,i=document;i.querySelector("html"),t(),window.addEventListener("resize",function(){clearTimeout(o),o=setTimeout(t,150)},!1),"complete"===i.readyState?i.body.style.fontSize=".24rem":i.addEventListener("DOMContentLoaded",function(){i.body.style.fontSize=".24rem"},!1)}(640);</script>
 </head>
 <body>
   <!--vue-ssr-outlet-->

@@ -14,7 +14,9 @@ export function createStore () {
       announces: [],
 
       // 商品列表
-      goodsList: [],
+      goods: {
+        list: []
+      },
 
       // 商品详情
       goodsDetail: {}

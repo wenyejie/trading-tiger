@@ -28,7 +28,7 @@
       }
     },
     mounted () {
-      this.$parent.bottom = this.$el.clientHeight / window.rootFontSize + .24 + 'rem';
+      //this.$parent.bottom = this.$el.clientHeight / window.rootFontSize + .24 + 'rem';
     }
   }
 </script>

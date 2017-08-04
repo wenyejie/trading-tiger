@@ -90,14 +90,11 @@
         <p>2.国家法律规定，未成年人不能参与虚拟物品交易</p>
       </s-panel>
 
-      <s-suspension v-if="showSuspension" shadow class="goodsDetail-suspension">
+      <s-suspension shadow class="goodsDetail-suspension">
         <s-button type="gray" v-if="goods.goodsStatus === 1 || goods.goodsStatus === 2" disabled block>待审核</s-button>
         <s-button type="primary" v-if="goods.goodsStatus === 3" block shadow @click="buy">立即购买</s-button>
         <s-button type="gray" v-if="goods.goodsStatus === 6" disabled block>宝贝已售罄</s-button>
-        <s-button type="gray"
-                  v-if="goods.goodsStatus === 4 || goods.goodsStatus === 5 || goods.goodsStatus === 7 || goods.goodsStatus === 8"
-                  disabled block>宝贝已下架
-        </s-button>
+        <s-button type="gray" v-if="goods.goodsStatus === 4 || goods.goodsStatus === 5 || goods.goodsStatus === 7 || goods.goodsStatus === 8" disabled block>宝贝已下架</s-button>
       </s-suspension>
 
       <!-- 分享 -->
@@ -119,10 +116,15 @@
 
   export default {
     name: 'detail',
-    props: {},
-    keywords: '',
-    description: '',
-    title: '',
+    title () {
+      return `${this.goods.gameName}${this.goods.goodsClassName}-${this.goods.showTitle}_${this.goods.serverName}_交易虎（jiaoyihu.com）`;
+    },
+    keywords () {
+      return `${this.goods.gameName}${this.goods.subClassName},${this.goods.showTitle},手机游戏交易平台,交易虎（jiaoyihu.com）`;
+    },
+    description () {
+      return `${this.goods.gameName}${this.goods.subClassName}-${this.goods.gameName}专区提供：${this.goods.showTitle} 。欢迎选择交易虎${this.goods.gameName}交易专区，了解更多关于${this.goods.showTitle}的信息`;
+    },
     data () {
       return {
         swiperOpts: {
@@ -134,9 +136,7 @@
         guarantee: null,
 
         // 分享弹出框
-        sharePopup: null,
-
-        showSuspension: false
+        sharePopup: null
       }
     },
     asyncData ({store, route}) {
@@ -190,17 +190,12 @@
           }
         })
       },
-    },
-
-    mounted () {
-      this.showSuspension = true;
     }
   }
 </script>
 
 <style lang="scss">
 
-  @import "../../styles/goodsDetail.scss";
   .goodsDetail-share {
     background: url('../../assets/share-white.png') no-repeat center;
     background-size: .36rem .36rem;

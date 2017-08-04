@@ -318,24 +318,7 @@
         this.$router.push({
           path: '/search'
         })
-      },
-
-      /**
-       * 获取公告列表
-       */
-      getAnnounces () {
-        if (this.announcesIng) return false;
-        this.announcesIng = true;
-        this.$http
-          .post('/h5/announceManage/listAnnounce')
-          .then(response => {
-            if (response.data.code !== '000') return false;
-            const list = [];
-            response.data.data.forEach(item => item.url && item.title && list.push(item));
-            this.$store.commit('SET_ANNOUNCES', {list});
-          })
-          .finally(() => this.announcesIng = false)
-      },
+      }
     },
     created () {
 //       this.getAnnounces();

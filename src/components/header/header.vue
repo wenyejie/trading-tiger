@@ -210,7 +210,7 @@
         }*/
       }
     },
-    mounted () {
+    created () {
       this.right = !!this.$slots.right;
       this.center = !!this.$slots.default;
       this.setTitle();

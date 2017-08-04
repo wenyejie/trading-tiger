@@ -9,9 +9,9 @@ function getTitle (vm) {
 
 const serverTitleMixin = {
   created () {
-    const title = getTitle(this)
+    const title = getTitle(this);
     if (title) {
-      this.$ssrContext.title = `交易虎_手机游戏交易平台_手游交易_帐号交易_游戏币交易_装备交易_道具交易_jiaoyihu | ${title}`
+      this.$ssrContext.title = `${title}`
     }
   }
 }
@@ -20,7 +20,7 @@ const clientTitleMixin = {
   mounted () {
     const title = getTitle(this)
     if (title) {
-      document.title = `交易虎_手机游戏交易平台_手游交易_帐号交易_游戏币交易_装备交易_道具交易_jiaoyihu | ${title}`
+      document.title = `${title}`
     }
   }
 }

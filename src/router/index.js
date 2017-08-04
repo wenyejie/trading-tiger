@@ -46,7 +46,20 @@ export function createRouter () {
 
       goods,
 
-      order
+      order,
+
+      {
+        path: '/500',
+        component: resolve => require(['../view/500.vue'], resolve)
+      },
+
+      {
+        path: '*',
+        name: 'Page404',
+        component: resolve => {
+          require(['@/view/404.vue'], resolve);
+        }
+      }
     ]
   })
 }

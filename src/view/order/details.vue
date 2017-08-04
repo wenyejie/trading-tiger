@@ -261,7 +261,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  @import "../../styles/goodsDetail.scss";
-</style>

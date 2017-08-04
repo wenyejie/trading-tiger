@@ -17,8 +17,8 @@ export default {
    * @param list
    * @constructor
    */
-  SET_GOODS_LIST: (state, {list}) => {
-    state.goodsList = list;
+  SET_GOODS: (state, {goods}) => {
+    state.goods = goods;
   },
 
   /**
