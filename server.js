@@ -20,7 +20,6 @@ const app = express();
 const template = fs.readFileSync(resolve('./src/index.html'), 'utf-8');
 
 function createRenderer (bundle, options) {
-  console.log(options.clientManifest.async);
   options.clientManifest.async = [];
   // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
   return createBundleRenderer(bundle, Object.assign(options, {
@@ -36,7 +35,6 @@ function createRenderer (bundle, options) {
     runInNewContext: false,
 
     shouldPreload: (file, type) => {
-      console.log(file, type);
       if (type === 'script') return false;
     }
   }))
@@ -93,7 +91,6 @@ const isCacheable = req => useMicroCache;
 function render (req, res) {
   const s = Date.now();
 
-  console.log('.................', req.url);
 
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Server", serverInfo);

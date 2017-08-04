@@ -51,16 +51,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  .s-tabs-panel {
-    transition: opacity .3s ease-in-out;
-
-    &-enter {
-      opacity: 0;
-    }
-    &-leave-active {
-      display: none;
-    }
-  }
-</style>
