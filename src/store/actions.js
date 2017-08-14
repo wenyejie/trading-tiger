@@ -7,12 +7,12 @@ export default {
    * @param commit
    */
   getAnnounces ({commit}) {
-    return axios.post('/h5/announceManage/listAnnounce')
+    return axios.post('/h5/notice/list')
       .then(response => {
         if (response.data.code !== '000') return false;
 
         const list = [];
-        response.data.data.forEach(item => item.url && item.title && list.push(item));
+        response.data.data.forEach(item => item.gotoUrl && item.title && list.push(item));
         commit('SET_ANNOUNCES', {list});
       })
   },

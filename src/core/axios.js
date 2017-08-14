@@ -9,8 +9,9 @@ import axios from 'axios';
 import axiosFinally from 'promise.prototype.finally';
 axiosFinally.shim();
 
-axios.defaults.baseURL = 'http://server.jiaoyihu.com';
-axios.defaults.withCredentials = true;
+// axios.defaults.baseURL = 'http://server.jiaoyihu.com';
+axios.defaults.baseURL = 'http://wfadmin.dm.com:8081';
+// axios.defaults.withCredentials = true;
 axios.defaults.timeout = 5000;
 
 axios.interceptors.request.use(config => {

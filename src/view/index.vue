@@ -92,7 +92,7 @@
         <h3 class="index-title"><span>公告区</span></h3>
 
         <ul>
-          <li v-for="item in announces" v-if="item.url && item.title"><a :href="item.url">{{item.title}}</a></li>
+          <li v-for="item in announces" v-if="item.gotoUrl && item.title"><a :href="item.gotoUrl">{{item.title}}</a></li>
         </ul>
       </section>
       <!-- /notice -->
@@ -319,10 +319,6 @@
           path: '/search'
         })
       }
-    },
-    created () {
-//       this.getAnnounces();
-      // this.getRecentlyDeal();
     }
   }
 </script>

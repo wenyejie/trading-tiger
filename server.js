@@ -72,7 +72,7 @@ app.use('/dist', serve('./dist', true));
 app.use('/public', serve('./public', true));
 app.use('/', serve('./', true));
 app.use('/manifest.json', serve('./manifest.json', true));
-app.use('/service-worker.js', serve('./dist/service-worker.js'));
+// app.use('/service-worker.js', serve('./dist/service-worker.js'));
 // app.use(path.posix.join('/', 'publish'), express.static('./publish'));
 
 // 1-second microcache.
@@ -99,13 +99,14 @@ function render (req, res) {
     if (err.url) {
       res.redirect(err.url)
     } else if(err.code === 404) {
-      res.redirect('/404');
-      // res.status(404).end('404 | Page Not Found')
+      // res.redirect('/404');
+      res.status(404).end('404 | Page Not Found');
+      console.log('404 | Page Not Found');
     } else {
       // Render Error Page or Redirect
-      // res.status(500).end('500 | Internal Server Error');
-      res.redirect('/500');
-      console.error(`error during render : ${req.url}`);
+      res.status(500).end('500 | Internal Server Error');
+      // res.redirect('/500');
+      console.error(`500 | Internal Server Error : ${req.url}`);
       console.error(err.stack)
     }
   };
